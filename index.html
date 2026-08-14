@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#059669" />
+<meta name="theme-color" content="#3b6ef6" />
 <title>MacroDay — Theo dõi dinh dưỡng</title>
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="icon" href="favicon-32.png" sizes="32x32" />
@@ -14,23 +14,24 @@
 <meta name="apple-mobile-web-app-title" content="MacroDay" />
 <meta name="description" content="Theo dõi calo và macro hằng ngày, hoạt động offline." />
 <style>
-/* ===== MacroDay — tông xanh emerald/mint, khỏe khoắn, tối giản ===== */
+/* ===== MacroDay — nhấn xanh dương tươi, macro đa sắc, nền sáng dễ đọc ===== */
 :root{
-  --emerald-50:#ecfdf5;--emerald-100:#d1fae5;--emerald-200:#a7f3d0;--emerald-300:#6ee7b7;
-  --emerald-400:#34d399;--emerald-500:#10b981;--emerald-600:#059669;--emerald-700:#047857;--emerald-800:#065f46;
-  --bg:#f4faf7;--bg1:#e6f7ef;--bg2:#f0fbf6;--surface:#ffffff;--surface-2:#f4f8f6;
-  --input-bg:#ffffff;--input-border:#d5e6de;--text:#0f2620;--text-soft:#4a5f58;
-  --text-muted:#6b7f77;--accent:var(--emerald-600);--accent-strong:var(--emerald-700);--accent-soft:var(--emerald-100);
-  --border:#e2ede8;--ring:rgba(5,150,105,.22);
-  --shadow-sm:0 1px 2px rgba(6,95,70,.06);--shadow-md:0 6px 20px rgba(6,95,70,.09);--shadow-lg:0 16px 40px rgba(6,95,70,.16);
-  --radius:20px;--radius-sm:14px;--danger:#e11d48;--ok:#059669;--warn:#d97706;--star:#f59e0b;
-  --c-cal:#10b981;--c-pro:#f43f5e;--c-carb:#f59e0b;--c-fat:#8b5cf6;--c-fiber:#06b6d4;
+  /* thang "emerald" giữ tên biến nhưng nay là XANH DƯƠNG (để mọi chỗ tự đổi màu) */
+  --emerald-50:#eef3ff;--emerald-100:#dce7ff;--emerald-200:#b9ccff;--emerald-300:#8fb0ff;
+  --emerald-400:#5b8dff;--emerald-500:#3b6ef6;--emerald-600:#2456d8;--emerald-700:#1d47b8;--emerald-800:#173a97;
+  --bg:#f4f6fc;--bg1:#e7edfc;--bg2:#f1f4fd;--surface:#ffffff;--surface-2:#f3f5fc;
+  --input-bg:#ffffff;--input-border:#dbe1f2;--text:#191c33;--text-soft:#4a4f6b;
+  --text-muted:#868bab;--accent:var(--emerald-600);--accent-strong:var(--emerald-700);--accent-soft:var(--emerald-100);
+  --border:#e5e8f5;--ring:rgba(59,110,246,.22);--track:#e9ecf6;
+  --shadow-sm:0 1px 2px rgba(30,50,120,.06);--shadow-md:0 8px 24px rgba(40,70,150,.10);--shadow-lg:0 18px 44px rgba(40,70,150,.18);
+  --radius:20px;--radius-sm:14px;--danger:#e11d48;--ok:#16a34a;--warn:#d97706;--star:#f59e0b;
+  --c-cal:#ff6b35;--c-pro:#ff477e;--c-carb:#f5b400;--c-fat:#7c4dff;--c-fiber:#00bcd4;
 }
 [data-theme='dark']{
-  --bg:#0b1512;--bg1:#0f1c17;--bg2:#0a130f;--surface:#13201b;--surface-2:#182722;
-  --input-bg:#1a2b25;--input-border:#2c433a;--text:#eafaf3;--text-soft:#b6ccc3;--text-muted:#7f958c;
-  --accent:var(--emerald-400);--accent-strong:var(--emerald-300);--accent-soft:#16302650;--border:#243d34;
-  --ring:rgba(52,211,153,.3);--shadow-sm:0 1px 2px rgba(0,0,0,.3);--shadow-md:0 6px 20px rgba(0,0,0,.4);--shadow-lg:0 16px 40px rgba(0,0,0,.5);
+  --bg:#080b1a;--bg1:#121a3c;--bg2:#0a0f26;--surface:#141a30;--surface-2:#1d2648;
+  --input-bg:#242e58;--input-border:#3d4a86;--text:#f5f7ff;--text-soft:#cdd3f0;--text-muted:#949cc4;
+  --accent:#6f9bff;--accent-strong:#9fbcff;--accent-soft:#233366;--border:#2d3868;
+  --ring:rgba(111,155,255,.42);--shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 10px 28px rgba(0,0,0,.5);--shadow-lg:0 20px 48px rgba(0,0,0,.6);--track:#2c3768;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -47,7 +48,7 @@ svg{display:block}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand-logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--emerald-400),var(--emerald-700));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-md);flex:none}
-.brand h1{font-size:20px;margin:0;letter-spacing:-.02em}
+.brand h1{font-size:21px;margin:0;letter-spacing:-.02em;font-weight:800;background:linear-gradient(115deg,var(--accent),var(--accent-strong));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .brand p{margin:0;font-size:12px;color:var(--text-muted)}
 .icon-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text-soft);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
 .icon-btn:active{transform:scale(.95)}
@@ -70,9 +71,10 @@ svg{display:block}
 .btn-ghost{background:transparent;border-color:transparent;color:var(--accent-strong)}
 
 .field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:12.5px;font-weight:600;color:var(--text-soft)}
-.input,.select{width:100%;background:var(--input-bg);border:1.5px solid var(--input-border);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;min-height:50px}
+.field label{font-size:12.5px;font-weight:700;color:var(--text-soft)}
+.input,.select{width:100%;background:var(--input-bg);border:2px solid var(--input-border);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);font-weight:600;outline:none;transition:border-color .15s,box-shadow .15s;min-height:50px;box-shadow:var(--shadow-sm)}
 .input:focus,.select:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.input::placeholder{color:var(--text-muted);font-weight:500}
 .input::placeholder{color:var(--text-muted)}
 textarea.input{resize:vertical;min-height:110px;line-height:1.55}
 
@@ -84,19 +86,30 @@ textarea.input{resize:vertical;min-height:110px;line-height:1.55}
 .goal-input input{width:100%;border:none;outline:none;background:transparent;font-size:24px;font-weight:800;color:var(--text);letter-spacing:-.02em}
 .goal-input .unit{font-size:12.5px;font-weight:700;color:var(--text-muted)}
 
-.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
-.donut-svg{width:100%;max-width:230px;height:auto;overflow:visible}
-.donut-center-value{font-weight:800;letter-spacing:-.03em}
-.donut-tap{cursor:pointer}
-.donut-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;width:100%}
-.legend-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:13px;border:1.5px solid var(--border);background:var(--surface-2);transition:border-color .15s,transform .1s;text-align:left}
-.legend-item:active{transform:translateY(1px)}
-.legend-item.active{border-color:var(--accent);background:var(--accent-soft)}
-.legend-item:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
-.legend-swatch{width:14px;height:14px;border-radius:5px;flex:none}
-.legend-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
-.legend-text .name{font-size:11.5px;color:var(--text-muted);font-weight:600}
-.legend-text .val{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap}
+.ring-wrap{display:flex;justify-content:center;padding:4px 0 14px}
+.ring-svg{width:100%;max-width:236px;height:auto;overflow:visible}
+.rings-wrap{display:flex;justify-content:center;padding:4px 0 16px}
+.rings-svg{width:100%;max-width:272px;height:auto;overflow:visible}
+.ring-tap{cursor:pointer}
+.rlegend{display:flex;flex-direction:column;gap:8px}
+.rleg{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1.5px solid var(--border);background:var(--surface-2);border-radius:13px;padding:11px 13px;min-height:48px;transition:border-color .15s,background .15s,transform .08s}
+.rleg:active{transform:translateY(1px)}
+.rleg.active{border-color:var(--accent);background:var(--accent-soft)}
+.rleg:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+.rdot{width:13px;height:13px;border-radius:5px;flex:none;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.rnm{font-weight:700;font-size:14px}
+.rvv{margin-left:auto;font-size:13px;color:var(--text-muted);font-weight:600;white-space:nowrap}
+.rvv b{font-size:14.5px;font-weight:800}
+.rpct{font-size:13.5px;font-weight:800;color:var(--accent-strong);min-width:46px;text-align:right}
+.mbars{display:flex;flex-direction:column;gap:15px}
+.mbar-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.mdot{width:12px;height:12px;border-radius:4px;flex:none}
+.mnm{font-weight:700;font-size:14px}
+.mval{margin-left:auto;font-size:13px;color:var(--text-muted);font-weight:600}
+.mval b{font-weight:800;font-size:15px}
+.mbar-track{height:13px;border-radius:999px;background:var(--track);overflow:hidden}
+.mbar-track>span{display:block;height:100%;border-radius:999px;transition:width .55s cubic-bezier(.4,0,.2,1)}
+.mbar-sub{display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);font-weight:600;margin-top:6px}
 
 .viewing{margin-top:14px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--surface-2);padding:15px}
 .viewing-head{display:flex;align-items:center;gap:9px;margin-bottom:13px}
@@ -207,6 +220,18 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 .sheet-foot .picked{font-size:13px;color:var(--text-soft);font-weight:600}
 .sheet-foot .picked b{color:var(--accent-strong)}
 .qa-add-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.cf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:520px){.cf-grid{grid-template-columns:repeat(3,1fr)}}
+.unit-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.unit-chip{border:1.5px solid var(--border);background:var(--surface-2);color:var(--text-soft);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:700;min-height:40px}
+.unit-chip.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-strong)}
+.qa-gram{margin-top:9px;font-size:13px;color:var(--text-soft);font-weight:600}
+.qa-gram b{color:var(--accent-strong)}
+.qa-cart{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;max-height:104px;overflow-y:auto}
+.qa-cchip{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent-strong);border:1px solid var(--border);border-radius:999px;padding:6px 6px 6px 11px;font-size:12.5px;font-weight:700}
+.qa-cchip .cdot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.qa-cchip button{border:none;background:transparent;color:var(--accent-strong);display:grid;place-items:center;width:22px;height:22px;border-radius:50%;opacity:.75}
+.qa-cchip button:active{opacity:1}
 
 /* ===== Hồ sơ ===== */
 .profile-chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 13px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--accent-strong);font-weight:700;font-size:13.5px;box-shadow:var(--shadow-sm);max-width:150px}
@@ -249,7 +274,9 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 var MACRO_KEYS=['calories','protein','carb','fat','fiber'];
 var MACRO_LABELS={calories:'Calories',protein:'Protein',carb:'Carb',fat:'Chất béo',fiber:'Chất xơ'};
 var MACRO_UNITS={calories:'kcal',protein:'g',carb:'g',fat:'g',fiber:'g'};
-var MACRO_COLORS={calories:'#10b981',protein:'#f43f5e',carb:'#f59e0b',fat:'#8b5cf6',fiber:'#06b6d4'};
+var MACRO_COLORS={calories:'#ff6b35',protein:'#ff477e',carb:'#f5b400',fat:'#7c4dff',fiber:'#00bcd4'};
+// phiên bản đậm hơn cho hiệu ứng khối 3D của biểu đồ
+var MACRO_COLORS_DARK={calories:'#e04e18',protein:'#e11d6b',carb:'#cf9500',fat:'#5f30e6',fiber:'#0295a8'};
 var RING_KEYS=['protein','carb','fat','fiber'];
 
 function ic(name,s){s=s||22;var p={
@@ -302,11 +329,36 @@ var BUILTIN_FOODS=[
   {id:'bread',name:'Bánh mì',baseGrams:100,calories:265,protein:9,carb:49,fat:3.2,fiber:2.7,source:'builtin'},
   {id:'pho',name:'Phở bò (1 tô)',baseGrams:400,calories:350,protein:25,carb:45,fat:6,fiber:2,source:'builtin'}
 ];
+// Gắn đơn vị tự nhiên cho món dựng sẵn: tên đơn vị → số gram mỗi đơn vị.
+(function(){var U={
+  'rice-white':{'bát':200,'chén':150},'rice-brown':{'bát':200,'chén':150},'oats':{'bát':200},
+  'chicken-breast':{'miếng':120},'chicken-thigh':{'cái':90},'salmon':{'miếng':120},'tofu':{'miếng':60},
+  'egg':{'quả':50,'trái':50},'shrimp':{'con':15},
+  'sweet-potato':{'củ':150},'potato':{'củ':150},
+  'banana':{'quả':120,'trái':120},'apple':{'quả':150,'trái':150},
+  'milk':{'ly':200,'cốc':200,'hộp':180},'yogurt':{'hộp':100},'bread':{'lát':25,'ổ':90},
+  'pho':{'tô':400,'bát':400}
+};BUILTIN_FOODS.forEach(function(f){if(U[f.id])f.units=U[f.id];});})();
 var DEFAULT_GOAL={calories:2000,protein:120,carb:220,fat:60,fiber:30};
 
 function round1(n){var r=Math.round(n*10)/10;return r===0?0:r;}
 function safe(n){return isFinite(n)&&n>0?n:0;}
 function pGrams(v){var n=parseFloat(String(v==null?'':v).replace(',','.'));return isFinite(n)&&n>0?n:0;} // nhận dấu phẩy
+function parseSumG(v){ // "300+150" -> 450 ; nhận dấu phẩy và phép cộng
+  return String(v==null?'':v).split('+').reduce(function(s,p){var n=parseFloat(p.replace(',','.'));return s+(isFinite(n)&&n>0?n:0);},0);}
+var GLOBAL_UNITS={g:1,gam:1,gr:1,gram:1,kg:1000,kilo:1000,kilogam:1000,lang:100};
+// Danh sách đơn vị cho một món: gram + đơn vị riêng của món + phần + kg.
+function unitOptions(food){var opts=[{u:'g',g:1}];
+  if(food&&food.units){for(var k in food.units)if(food.units.hasOwnProperty(k))opts.push({u:k,g:food.units[k]});}
+  opts.push({u:'phần',g:(food&&food.baseGrams)||100});opts.push({u:'kg',g:1000});return opts;}
+function unitToGrams(food,amount,unit){amount=parseFloat(String(amount==null?'':amount).replace(',','.'))||0;
+  if(!unit||unit==='g')return amount;
+  if(food&&food.units&&food.units[unit]!=null)return amount*food.units[unit];
+  var nu=normKey(unit);
+  if(nu==='phan'||nu==='suat')return amount*((food&&food.baseGrams)||100);
+  if(GLOBAL_UNITS[nu]!=null)return amount*GLOBAL_UNITS[nu];
+  return amount;}
+function amountLabel(amount,unit){var a=parseFloat(String(amount==null?'':amount).replace(',','.'))||0;return round1(a)+(unit&&unit!=='g'?(' '+unit):'g');}
 function perBaseOf(f){return {calories:f.calories,protein:f.protein,carb:f.carb,fat:f.fat,fiber:f.fiber};}
 function entryMacros(e){var base=safe(e.baseGrams)||100,factor=safe(e.grams)/base;
   return {calories:round1(e.perBase.calories*factor),protein:round1(e.perBase.protein*factor),carb:round1(e.perBase.carb*factor),fat:round1(e.perBase.fat*factor),fiber:round1(e.perBase.fiber*factor)};}
@@ -386,11 +438,10 @@ function loadLog(){rolloverIfNeeded();return read(K.log,[]);}
 
 // Dữ liệu 7 ngày (hôm nay lấy tổng đang chạy, ngày cũ lấy từ lịch sử).
 function weekData(){
-  var histByDate={};historyLoad().forEach(function(d){histByDate[d.date]=d;});
-  var today=todayKey();var live=totalMacros(S.entries);
+  var today=todayKey();
   var days=[],totals={calories:0,protein:0,carb:0,fat:0,fiber:0};
   for(var i=HISTORY_DAYS-1;i>=0;i--){var key=offsetKey(i);var isToday=key===today;
-    var t=isToday?live:(histByDate[key]||{calories:0,protein:0,carb:0,fat:0,fiber:0});
+    var t=dayTotals(key);
     MACRO_KEYS.forEach(function(k){totals[k]+=t[k]||0;});
     days.push({date:key,dow:dowLabel(key),ddmm:ddmm(key),isToday:isToday,totals:t});}
   MACRO_KEYS.forEach(function(k){totals[k]=round1(totals[k]);});
@@ -404,7 +455,7 @@ var S={
   entries:loadLog(),customFoods:read(K.custom,[]),sheetFoods:read(K.sheet,[]),sheetUrl:read(K.sheetUrl,''),
   favorites:read(K.fav,[]),
   selected:'calories',sheetStatus:null,pasteStatus:null,myFoodsStatus:null,
-  quickAdd:false,qaSearch:'',qaFoodId:'',dayView:null
+  quickAdd:false,qaSearch:'',qaFoodId:'',qaUnit:'g',qaAmount:'',qaCart:[],dayView:null
 };
 // Nạp lại toàn bộ dữ liệu theo hồ sơ đang chọn (khi đổi/ thêm hồ sơ).
 function applyProfile(pid){
@@ -456,29 +507,68 @@ function parseMyFoods(text){var lines=text.split('\n').map(function(l){return l.
 var SIZE=300,CX=150,CY=150;
 function polar(cx,cy,r,deg){var a=(deg-90)*Math.PI/180;return {x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)};}
 function arcPath(cx,cy,r,start,end){var sweep=Math.min(end-start,359.999);var s=polar(cx,cy,r,start);var e=polar(cx,cy,r,start+sweep);var large=sweep>180?1:0;return 'M '+s.x+' '+s.y+' A '+r+' '+r+' 0 '+large+' 1 '+e.x+' '+e.y;}
-function donutSVG(){var used=totalMacros(S.entries),goal=S.goal,html='';
-  html+='<svg class="donut-svg" viewBox="0 0 '+SIZE+' '+SIZE+'" role="img" aria-label="Biểu đồ macro">';
-  html+='<defs><radialGradient id="dg" cx="50%" cy="38%" r="70%"><stop offset="0%" stop-color="var(--surface)"/><stop offset="100%" stop-color="var(--surface-2)"/></radialGradient>';
-  html+='<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#059669" flood-opacity="0.16"/></filter></defs>';
-  html+='<circle cx="'+CX+'" cy="'+CY+'" r="64" fill="url(#dg)" filter="url(#sh)"/>';
-  var outer=124,gap=24,stroke=16;
-  RING_KEYS.forEach(function(key,i){var r=outer-i*gap;var p=pct(used[key],goal[key]);var active=S.selected===key;var color=MACRO_COLORS[key];var lp=polar(CX,CY,r,p===0?4:Math.max(p*3.6*0.5,12));
-    html+='<g data-macro="'+key+'" class="donut-tap">';
-    html+='<circle cx="'+CX+'" cy="'+CY+'" r="'+r+'" fill="none" stroke="var(--accent-soft)" stroke-width="'+stroke+'"/>';
-    html+='<path d="'+arcPath(CX,CY,r,0,Math.max(p*3.6,0.01))+'" fill="none" stroke="'+color+'" stroke-width="'+(active?stroke+3:stroke)+'" stroke-linecap="round" opacity="'+(active?1:0.9)+'"/>';
-    html+='<circle cx="'+lp.x+'" cy="'+lp.y+'" r="'+(active?6:4.5)+'" fill="'+color+'" stroke="var(--surface)" stroke-width="2"/></g>';});
-  var calP=pct(used.calories,goal.calories);
-  html+='<text data-macro="calories" x="'+CX+'" y="'+(CY-11)+'" text-anchor="middle" class="donut-tap" fill="var(--text-muted)" font-size="12.5" font-weight="700">Calories</text>';
-  html+='<text data-macro="calories" x="'+CX+'" y="'+(CY+14)+'" text-anchor="middle" class="donut-center-value donut-tap" fill="'+(S.selected==='calories'?MACRO_COLORS.calories:'var(--text)')+'" font-size="29">'+Math.round(used.calories)+'</text>';
-  html+='<text x="'+CX+'" y="'+(CY+32)+'" text-anchor="middle" fill="var(--text-muted)" font-size="11.5" font-weight="600">/ '+Math.round(goal.calories)+' · '+Math.round(calP)+'%</text>';
-  html+='</svg>';
-  html+='<div class="donut-legend">';
-  ['calories'].concat(RING_KEYS).forEach(function(key){var active=S.selected===key;var p=Math.round(pct(used[key],goal[key]));
-    html+='<button class="legend-item'+(active?' active':'')+'" data-macro="'+key+'" type="button" aria-pressed="'+active+'">';
-    html+='<span class="legend-swatch" style="background:'+MACRO_COLORS[key]+'"></span>';
-    html+='<span class="legend-text"><span class="name">'+MACRO_LABELS[key]+' · '+p+'%</span>';
-    html+='<span class="val">'+round1(used[key])+' <span style="color:var(--text-muted);font-weight:600">/ '+round1(goal[key])+' '+MACRO_UNITS[key]+'</span></span></span></button>';});
-  html+='</div>';return html;}
+function mixHex(hex,target,t){hex=hex.replace('#','');var r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16);var tr=(target>>16)&255,tg=(target>>8)&255,tb=target&255;r=Math.round(r+(tr-r)*t);g=Math.round(g+(tg-g)*t);b=Math.round(b+(tb-b)*t);return '#'+[r,g,b].map(function(x){return ('0'+x.toString(16)).slice(-2);}).join('');}
+function lighten(hex){return mixHex(hex,0xffffff,0.42);}
+var RING_MACROS=['protein','carb','fat','fiber']; // Calories hiển thị ở TÂM, không làm vòng.
+// Vòng đồng tâm kiểu Apple Watch cho 4 macro + số Calories nổi bật ở giữa.
+function ringsSVG(){var used=totalMacros(S.entries),goal=S.goal;var base=120,step=23,stroke=19;
+  var h='<svg class="rings-svg" viewBox="0 0 260 260" role="img" aria-label="Vòng các chỉ số">';
+  h+='<defs>';
+  RING_MACROS.forEach(function(k){h+='<linearGradient id="rg-'+k+'" x1="0.1" y1="0" x2="0.9" y2="1"><stop offset="0%" stop-color="'+lighten(MACRO_COLORS[k])+'"/><stop offset="55%" stop-color="'+MACRO_COLORS[k]+'"/><stop offset="100%" stop-color="'+MACRO_COLORS_DARK[k]+'"/></linearGradient>';});
+  h+='<linearGradient id="calTxt" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0%" stop-color="'+lighten(MACRO_COLORS.calories)+'"/><stop offset="100%" stop-color="'+MACRO_COLORS_DARK.calories+'"/></linearGradient>';
+  h+='<filter id="rcap" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#0b1030" flood-opacity="0.35"/></filter>';
+  h+='<filter id="rsoft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0b1030" flood-opacity="0.12"/></filter>';
+  h+='</defs>';
+  RING_MACROS.forEach(function(k,i){var r=base-i*step;h+='<circle cx="130" cy="130" r="'+r+'" fill="none" stroke="'+MACRO_COLORS[k]+'" stroke-opacity="0.16" stroke-width="'+stroke+'"/>';});
+  h+='<g filter="url(#rsoft)">';
+  RING_MACROS.forEach(function(k,i){var r=base-i*step;var p=pct(used[k],goal[k]);var active=S.selected===k;var w=active?stroke+2:stroke;var deg=Math.max(p*3.6,0.01);var cap=polar(130,130,r,deg);
+    h+='<g data-macro="'+k+'" class="ring-tap">';
+    h+='<circle cx="'+cap.x+'" cy="'+cap.y+'" r="'+(w/2)+'" fill="#0b1030" opacity="0.14"/>';
+    h+='<path d="'+arcPath(130,130,r,0,deg)+'" fill="none" stroke="url(#rg-'+k+')" stroke-width="'+w+'" stroke-linecap="round"/>';
+    h+='<circle cx="'+cap.x+'" cy="'+cap.y+'" r="'+(w/2)+'" fill="'+MACRO_COLORS[k]+'" filter="url(#rcap)"/>';
+    h+='</g>';});
+  h+='</g>';
+  // TÂM: Calories
+  var u=used.calories,g=goal.calories,raw=rawPct(u,g),over=raw>100,left=round1(Math.max(0,g-u));
+  h+='<text x="130" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="11" font-weight="700" letter-spacing="2">CALORIES</text>';
+  h+='<text x="130" y="144" text-anchor="middle" fill="url(#calTxt)" font-size="33" font-weight="800" letter-spacing="-1">'+Math.round(u)+'</text>';
+  h+='<text x="130" y="162" text-anchor="middle" fill="var(--text-muted)" font-size="11" font-weight="600">'+(over?('vượt '+Math.round(raw-100)+'%'):('còn '+left))+' / '+Math.round(g)+' kcal</text>';
+  h+='</svg>';return h;}
+// Chú giải số 4 macro (bấm để làm nổi vòng tương ứng).
+function ringsLegend(){var used=totalMacros(S.entries),goal=S.goal,left=remainingMacros(goal,used);
+  var h='<div class="rlegend">';
+  RING_MACROS.forEach(function(k){var u=round1(used[k]),g=round1(goal[k]),p=Math.round(pct(u,g)),over=rawPct(u,g)>100;var active=S.selected===k;
+    h+='<button type="button" class="rleg'+(active?' active':'')+'" data-macro="'+k+'">';
+    h+='<span class="rdot" style="background:'+MACRO_COLORS[k]+'"></span>';
+    h+='<span class="rnm">'+MACRO_LABELS[k]+'</span>';
+    h+='<span class="rvv"><b style="color:'+(over?'var(--danger)':'var(--text)')+'">'+u+'</b> / '+g+' '+MACRO_UNITS[k]+'</span>';
+    h+='<span class="rpct">'+(over?('+'+Math.round(rawPct(u,g)-100)+'%'):(p+'%'))+'</span>';
+    h+='</button>';});
+  h+='</div>';return h;}
+// Vòng lớn cho Calories — sạch, hiện đại, nổi khối nhẹ bằng gradient + bóng.
+function ringSVG(){var used=totalMacros(S.entries),goal=S.goal;var u=used.calories,g=goal.calories;var p=pct(u,g);var raw=rawPct(u,g),over=raw>100;var left=round1(Math.max(0,g-u));var deg=Math.max(p*3.6,0.01);
+  var h='<svg class="ring-svg" viewBox="0 0 220 220" role="img" aria-label="Vòng Calories">';
+  h+='<defs><linearGradient id="cg" x1="0.12" y1="0.05" x2="0.85" y2="0.95"><stop offset="0%" stop-color="'+lighten(MACRO_COLORS.calories)+'"/><stop offset="50%" stop-color="'+MACRO_COLORS.calories+'"/><stop offset="100%" stop-color="'+MACRO_COLORS_DARK.calories+'"/></linearGradient>';
+  h+='<linearGradient id="cgl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="55%" stop-color="#ffffff" stop-opacity="0"/></linearGradient>';
+  h+='<filter id="cds" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="'+MACRO_COLORS_DARK.calories+'" flood-opacity="0.30"/></filter></defs>';
+  h+='<circle cx="110" cy="110" r="82" fill="none" stroke="var(--track)" stroke-width="20"/>';
+  var d=arcPath(110,110,82,0,deg);
+  h+='<path d="'+d+'" fill="none" stroke="'+(over?'var(--danger)':'url(#cg)')+'" stroke-width="20" stroke-linecap="round" filter="url(#cds)"/>';
+  if(!over)h+='<path d="'+d+'" fill="none" stroke="url(#cgl)" stroke-width="7" stroke-linecap="round"/>';
+  h+='<text x="110" y="94" text-anchor="middle" fill="var(--text-muted)" font-size="12.5" font-weight="700" letter-spacing="1.5">CALORIES</text>';
+  h+='<text x="110" y="126" text-anchor="middle" fill="var(--text)" font-size="40" font-weight="800" letter-spacing="-1">'+Math.round(u)+'</text>';
+  h+='<text x="110" y="148" text-anchor="middle" fill="var(--text-muted)" font-size="12.5" font-weight="600">'+(over?('vượt '+Math.round(raw-100)+'% · '):('còn '+left+' / '))+Math.round(g)+' kcal</text>';
+  h+='</svg>';return h;}
+// Bốn thanh macro rõ ràng, dễ đọc.
+function macroBarsHTML(){var used=totalMacros(S.entries),goal=S.goal,left=remainingMacros(goal,used);
+  var h='<div class="mbars">';
+  ['protein','carb','fat','fiber'].forEach(function(k){var u=round1(used[k]),g=round1(goal[k]),p=pct(u,g),raw=rawPct(u,g),over=raw>100;
+    h+='<div class="mbar">';
+    h+='<div class="mbar-top"><span class="mdot" style="background:'+MACRO_COLORS[k]+'"></span><span class="mnm">'+MACRO_LABELS[k]+'</span><span class="mval"><b style="color:'+(over?'var(--danger)':'var(--text)')+'">'+u+'</b> / '+g+' '+MACRO_UNITS[k]+'</span></div>';
+    h+='<div class="mbar-track"><span style="width:'+p+'%;background:linear-gradient(90deg,'+lighten(MACRO_COLORS[k])+' 0%,'+MACRO_COLORS[k]+' 100%)"></span></div>';
+    h+='<div class="mbar-sub"><span>'+(over?('<span style="color:var(--danger)">vượt '+Math.round(raw-100)+'%</span>'):('còn '+left[k]+' '+MACRO_UNITS[k]))+'</span><span>'+Math.round(p)+'%</span></div>';
+    h+='</div>';});
+  h+='</div>';return h;}
 
 function viewingHTML(){var used=totalMacros(S.entries),goal=S.goal,m=S.selected;var u=round1(used[m]),g=round1(goal[m]),left=round1(Math.max(0,g-u));var p=pct(u,g),raw=rawPct(u,g),over=raw>100,color=MACRO_COLORS[m],unit=MACRO_UNITS[m];
   var h='<div class="viewing" aria-live="polite">';
@@ -505,14 +595,14 @@ function remainingHTML(){var used=totalMacros(S.entries),goal=S.goal,left=remain
   h+='</div>';return h;}
 
 function foodItemHTML(e){var m=entryMacros(e);
-  var h='<div class="food-item"><div><div class="fname">'+esc(e.name)+'</div><div class="fmeta">'+round1(e.grams)+'g đã nấu chín · gốc '+round1(e.baseGrams)+'g</div>';
+  var meta=(e.label?e.label:round1(e.grams)+'g')+' đã nấu chín'+((e.times&&e.times>1)?(' · ăn '+e.times+' lần'):'')+' · gốc '+round1(e.baseGrams)+'g';
+  var h='<div class="food-item"><div><div class="fname">'+esc(e.name)+'</div><div class="fmeta">'+meta+'</div>';
   h+='<div class="fmacros"><span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span></div></div>';
   h+='<div class="fright"><div class="field fgrams"><input class="input" type="text" inputmode="decimal" value="'+(e.grams===0?'':e.grams)+'" placeholder="0" data-grams="'+e.id+'" aria-label="Khối lượng '+esc(e.name)+'"></div><button type="button" class="btn btn-danger" data-remove="'+e.id+'" aria-label="Xoá '+esc(e.name)+'">'+ic('trash',18)+'</button></div></div>';return h;}
 
 // ---------- Overview (biểu đồ gọn → còn lại → nhật ký) ----------
 function overviewTab(){
-  var h='<section class="card"><h2 class="card-title">'+ic('overview',18)+' Macro tổng quan</h2><div class="donut-wrap">'+donutSVG()+'</div>'+viewingHTML();
-  h+='<details class="collapsible" style="margin-top:6px"><summary>Chi tiết từng chỉ số<span class="chev">'+ic('chev',18)+'</span></summary><div style="margin-top:10px">'+panelHTML()+'</div></details></section>';
+  var h='<section class="card"><h2 class="card-title">'+ic('overview',18)+' Tổng quan hôm nay</h2><div class="rings-wrap">'+ringsSVG()+'</div>'+ringsLegend()+'</section>';
   h+='<section class="card"><div class="row-between" style="margin-bottom:14px"><h2 class="card-title" style="margin:0">'+ic('spark',18)+' Còn lại hôm nay</h2><button type="button" class="btn" id="new-day" style="min-height:44px;padding:8px 14px">'+ic('refresh',17)+' Ngày mới</button></div>'+remainingHTML()+'</section>';
   h+='<section class="card"><div class="row-between" style="margin-bottom:14px"><h2 class="card-title" style="margin:0">'+ic('log',18)+' Nhật ký hôm nay</h2>'+(S.entries.length?'<span class="helper">'+S.entries.length+' món</span>':'')+'</div>';
   if(S.entries.length===0)h+='<div class="empty">'+ic('bowl',40)+'<div class="t">Chưa có món nào hôm nay.<br>Chạm nút <b>+ Thêm món</b> để bắt đầu!</div></div>';
@@ -535,8 +625,21 @@ function weekCardHTML(){
   h+='<p class="helper" style="margin-top:12px">Chạm vào một cột để xem ngày đó đã ăn gì. Cột xanh đậm là hôm nay. Trung bình <b>'+avg+' kcal/ngày</b> (trên '+(activeDays||0)+' ngày có ghi). Dữ liệu tự lưu '+HISTORY_DAYS+' ngày gần nhất, ngày cũ hơn tự động xoá.</p>';
   h+='</section>';return h;}
 
+function dayTotals(key){
+  if(key===todayKey())return totalMacros(S.entries);
+  var d=null;historyLoad().forEach(function(x){if(x.date===key)d=x;});
+  if(!d)return {calories:0,protein:0,carb:0,fat:0,fiber:0};
+  if(!d.manual&&d.entries&&d.entries.length)return totalMacros(d.entries);
+  return {calories:round1(d.calories||0),protein:round1(d.protein||0),carb:round1(d.carb||0),fat:round1(d.fat||0),fiber:round1(d.fiber||0)};
+}
+function saveManualDay(key,vals){
+  var h=historyLoad();var found=null;h.forEach(function(x){if(x.date===key)found=x;});
+  if(!found){found={date:key,entries:[]};h.unshift(found);}
+  MACRO_KEYS.forEach(function(k){found[k]=round1(vals[k]||0);});found.manual=true;
+  historySave(pruneHistory(h));
+}
 function dayViewHTML(){
-  var key=S.dayView;var isToday=key===todayKey();var list=entriesForDate(key);var tot=totalMacros(list);
+  var key=S.dayView;var isToday=key===todayKey();var list=entriesForDate(key);var tot=dayTotals(key);
   var title=(isToday?'Hôm nay':dowLabel(key)+', '+ddmm(key));
   var h='<div class="overlay" id="day-overlay"><div class="sheet" role="dialog" aria-label="Chi tiết ngày">';
   h+='<div class="sheet-handle"></div>';
@@ -545,12 +648,21 @@ function dayViewHTML(){
   MACRO_KEYS.forEach(function(k){h+='<div class="week-stat"><div class="k"><span class="swatch" style="background:'+MACRO_COLORS[k]+'"></span>'+MACRO_LABELS[k]+'</div><div class="v">'+round1(tot[k])+'<small>'+MACRO_UNITS[k]+'</small></div></div>';});
   h+='</div></div>';
   h+='<div class="qa-list" style="padding:0 18px 16px">';
-  if(!list||list.length===0)h+='<div class="qa-empty">'+(isToday?'Hôm nay chưa ghi món nào.':'Ngày này không có dữ liệu chi tiết.')+'</div>';
-  else h+='<div class="food-list">'+list.map(function(e){return foodItemStatic(e);}).join('')+'</div>';
+  if(list&&list.length)h+='<div class="food-list">'+list.map(function(e){return foodItemStatic(e);}).join('')+'</div>';
+  else if(isToday)h+='<div class="qa-empty">Hôm nay chưa ghi món nào.</div>';
+  if(!isToday){
+    h+='<details class="collapsible"'+((!list||!list.length)?' open':'')+' style="margin-top:6px"><summary>'+ic('edit',17)+' Tự nhập / sửa số cho ngày này<span class="chev">'+ic('chev',18)+'</span></summary>';
+    h+='<p class="helper" style="margin:8px 0 10px">Quên nhập hôm đó? Điền tổng của ngày vào đây, số sẽ cập nhật vào biểu đồ 7 ngày.</p>';
+    h+='<div class="cf-grid">';
+    MACRO_KEYS.forEach(function(k){h+='<div class="field"><label for="md-'+k+'"><span class="swatch" style="display:inline-block;width:9px;height:9px;border-radius:3px;background:'+MACRO_COLORS[k]+';margin-right:5px"></span>'+MACRO_LABELS[k]+' ('+MACRO_UNITS[k]+')</label><input id="md-'+k+'" class="input" type="text" inputmode="decimal" value="'+(tot[k]?round1(tot[k]):'')+'" placeholder="0"></div>';});
+    h+='</div><button type="button" class="btn btn-primary" id="day-save" style="margin-top:12px">'+ic('plus',18)+' Lưu số ngày này</button>';
+    h+='</details>';
+  }
   h+='</div></div></div>';return h;}
 
 function foodItemStatic(e){var m=entryMacros(e);
-  return '<div class="food-item" style="grid-template-columns:1fr"><div><div class="fname">'+esc(e.name)+'</div><div class="fmeta">'+round1(e.grams)+'g đã nấu chín · gốc '+round1(e.baseGrams)+'g</div><div class="fmacros"><span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span></div></div></div>';}
+  var meta=(e.label?e.label:round1(e.grams)+'g')+((e.times&&e.times>1)?(' · ăn '+e.times+' lần'):'')+' · gốc '+round1(e.baseGrams)+'g';
+  return '<div class="food-item" style="grid-template-columns:1fr"><div><div class="fname">'+esc(e.name)+'</div><div class="fmeta">'+meta+'</div><div class="fmacros"><span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span></div></div></div>';}
 
 function profileCardHTML(){
   var profs=loadProfiles();var act=activePid();
@@ -576,14 +688,38 @@ function goalsTab(){
   h+='<section class="card"><div class="note">Dữ liệu lưu cục bộ trên thiết bị này (localStorage). Phiên bản đầu chưa có backend nên <b>chưa đồng bộ giữa các thiết bị</b>.</div></section>';
   return h;}
 
+function nf(id,label,ph){return '<div class="field"><label for="'+id+'">'+label+'</label><input id="'+id+'" class="input" type="text" inputmode="decimal" placeholder="'+(ph||'0')+'"></div>';}
 function foodsTab(){
-  var h='<section class="card"><h2 class="card-title">'+ic('plus',18)+' Món ăn của tôi</h2>';
-  h+='<p class="helper" style="margin:0 0 12px">Nhập nhiều món cùng lúc — mỗi dòng theo thứ tự:<br><b>Tên món , khối lượng(g) , protein , carb , fat , calo</b><br>Dùng dấu phẩy hoặc tab (dán từ Excel / Google Sheets được).</p>';
-  h+='<textarea id="myfoods-text" class="input" placeholder="Ví dụ:&#10;Cơm gà xối mỡ, 250, 28, 60, 18, 520&#10;Sinh tố bơ, 300, 4, 25, 20, 300&#10;Bò kho, 200, 26, 12, 15, 320"></textarea>';
-  h+='<div class="row-between" style="margin-top:12px;flex-wrap:wrap;gap:10px"><button type="button" class="btn btn-primary" id="import-myfoods">'+ic('plus',18)+' Nhập vào database</button>'+(S.myFoodsStatus?'<span class="'+(S.myFoodsStatus.ok?'status-ok':'status-err')+'">'+esc(S.myFoodsStatus.msg)+'</span>':'')+'</div>';
+  var h='<section class="card"><h2 class="card-title">'+ic('plus',18)+' Thêm món của tôi</h2>';
+  h+='<p class="helper" style="margin:0 0 12px">Điền vào từng ô bên dưới rồi bấm <b>Lưu món</b>. Chỉ cần <b>Tên món</b> là bắt buộc, các ô khác để trống sẽ tính là 0.</p>';
+  h+='<div class="section-gap">';
+  h+='<div class="field"><label for="cf-name">Tên món</label><input id="cf-name" class="input" type="text" placeholder="VD: Cơm gà xối mỡ"></div>';
+  h+='<div class="cf-grid">';
+  h+=nf('cf-base','Khối lượng (g)','100');
+  h+=nf('cf-cal','Calo (kcal)','0');
+  h+=nf('cf-pro','Protein (g)','0');
+  h+=nf('cf-carb','Carb (g)','0');
+  h+=nf('cf-fat','Chất béo (g)','0');
+  h+=nf('cf-fiber','Chất xơ (g)','0');
+  h+='</div>';
+  h+='<div class="helper" style="margin:2px 0 -4px">Đơn vị khác (tùy chọn) — sẽ hiện thành nút chọn nhanh khi thêm món. VD: cốc = 250g, phần = 150g.</div>';
+  h+='<div class="cf-grid">';
+  h+='<div class="field"><label for="cf-u1n">Tên đơn vị</label><input id="cf-u1n" class="input" type="text" placeholder="VD: cốc"></div>';
+  h+='<div class="field"><label for="cf-u1g">= ? gram</label><input id="cf-u1g" class="input" type="text" inputmode="decimal" placeholder="250"></div>';
+  h+='<div class="field"><label for="cf-u2n">Đơn vị khác nữa</label><input id="cf-u2n" class="input" type="text" placeholder="VD: bát"></div>';
+  h+='<div class="field"><label for="cf-u2g">= ? gram</label><input id="cf-u2g" class="input" type="text" inputmode="decimal" placeholder="200"></div>';
+  h+='</div>';
+  h+='<div class="row-between" style="flex-wrap:wrap;gap:10px"><button type="button" class="btn btn-primary" id="save-myfood">'+ic('plus',18)+' Lưu món</button>'+(S.myFoodsStatus?'<span class="'+(S.myFoodsStatus.ok?'status-ok':'status-err')+'">'+esc(S.myFoodsStatus.msg)+'</span>':'')+'</div>';
+  h+='<p class="helper">Số liệu tính cho <b>khối lượng gốc</b> bạn nhập (mặc định 100g). Khi thêm vào nhật ký có thể đổi đơn vị (g, kg, phần, và đơn vị bạn tự đặt).</p>';
+  h+='</div>';
   if(S.customFoods.length>0){h+='<hr class="divider"><div class="helper" style="margin-bottom:8px"><b>'+S.customFoods.length+' món của bạn</b></div><div class="section-gap">';
     S.customFoods.forEach(function(f){h+='<div class="row-between" style="font-size:13.5px"><span><b>'+esc(f.name)+'</b> <span class="helper">'+round1(f.baseGrams)+'g · P'+round1(f.protein)+' C'+round1(f.carb)+' F'+round1(f.fat)+' · '+round1(f.calories)+' kcal</span></span><button type="button" class="btn btn-danger" data-delcustom="'+f.id+'" aria-label="Xoá '+esc(f.name)+'">'+ic('trash',17)+'</button></div>';});
     h+='</div>';}
+  h+='<hr class="divider"><details class="collapsible"><summary>Nhập nhiều món cùng lúc (nâng cao)<span class="chev">'+ic('chev',18)+'</span></summary><div style="margin-top:12px">';
+  h+='<p class="helper" style="margin:0 0 10px">Mỗi dòng một món theo thứ tự: <b>Tên , khối lượng(g) , protein , carb , fat , calo</b>. Dán từ Excel/Sheets được.</p>';
+  h+='<textarea id="myfoods-text" class="input" placeholder="Cơm gà xối mỡ, 250, 28, 60, 18, 520&#10;Sinh tố bơ, 300, 4, 25, 20, 300"></textarea>';
+  h+='<button type="button" class="btn" id="import-myfoods" style="margin-top:10px">Nhập hàng loạt</button>';
+  h+='</div></details>';
   h+='</section>';
   h+='<section class="card"><details class="collapsible"><summary>'+ic('sheet',18)+' Nạp từ Google Sheets<span class="chev">'+ic('chev',18)+'</span></summary><div class="section-gap" style="margin-top:12px">';
   h+='<div class="field"><label for="sheet-url">URL Google Sheets</label><input id="sheet-url" class="input" type="url" placeholder="https://docs.google.com/…/gviz/tq?tqx=out:json&sheet=Foods" value="'+esc(S.sheetUrl)+'"></div>';
@@ -607,9 +743,26 @@ function qaListHTML(){var list=qaFilteredFoods();if(list.length===0)return '<div
     h+='<button type="button" class="qa-pick" data-pick="'+f.id+'"><span class="n">'+esc(f.name)+(tag?' <span style="color:var(--text-muted);font-weight:600;font-size:11px">· '+tag+'</span>':'')+'</span><span class="m">'+round1(f.calories)+' kcal · P'+round1(f.protein)+' C'+round1(f.carb)+' F'+round1(f.fat)+' / '+round1(f.baseGrams)+'g</span></button>';
     h+='</div>';});
   return h;}
-function qaFooterHTML(){var f=S.qaFoodId?foodById(S.qaFoodId):null;
-  if(!f)return '<div class="picked">Chọn một món ở trên để nhập khối lượng.</div><div class="qa-add-row"><input class="input" type="text" inputmode="decimal" placeholder="Khối lượng (g)" disabled><button type="button" class="btn btn-primary" disabled>'+ic('plus',18)+' Thêm</button></div>';
-  return '<div class="picked">Đã chọn: <b>'+esc(f.name)+'</b> · gốc '+round1(f.baseGrams)+'g</div><div class="qa-add-row"><div class="field"><input id="qa-grams" class="input" type="text" inputmode="decimal" placeholder="'+round1(f.baseGrams)+'" aria-label="Khối lượng (g)"></div><button type="button" class="btn btn-primary" id="qa-add">'+ic('plus',18)+' Thêm</button></div>';}
+function qaExisting(f){for(var i=0;i<S.entries.length;i++)if(S.entries[i].foodId===f.id)return S.entries[i];return null;}
+function qaFooterHTML(){var f=S.qaFoodId?foodById(S.qaFoodId):null;var n=S.qaCart.length;var h='';
+  // danh sách chờ
+  if(n){h+='<div class="qa-cart">';S.qaCart.forEach(function(it,idx){h+='<span class="qa-cchip"><span class="cdot"></span>'+esc(it.name)+' · '+esc(it.label)+'<button type="button" data-cart-rm="'+idx+'" aria-label="Bỏ khỏi danh sách">'+ic('close',13)+'</button></span>';});h+='</div>';}
+  // món đang chọn
+  if(f){
+    var opts=unitOptions(f);var okUnit=false;opts.forEach(function(o){if(o.u===S.qaUnit)okUnit=true;});if(!okUnit)S.qaUnit='g';
+    var chips=opts.map(function(o){return '<button type="button" class="unit-chip'+(S.qaUnit===o.u?' on':'')+'" data-unit="'+o.u+'">'+o.u+'</button>';}).join('');
+    var amt=S.qaAmount;var grams=unitToGrams(f,amt,S.qaUnit);var ph=(S.qaUnit==='g')?String(round1(f.baseGrams)):'1';
+    h+='<div class="picked">Đã chọn: <b>'+esc(f.name)+'</b> · gốc '+round1(f.baseGrams)+'g</div>';
+    h+='<div class="unit-row">'+chips+'</div>';
+    h+='<div class="qa-add-row"><div class="field"><input id="qa-amt" class="input" type="text" inputmode="decimal" value="'+esc(amt)+'" placeholder="'+ph+'" aria-label="Số lượng"></div><button type="button" class="btn" id="qa-add">'+ic('plus',18)+' Vào danh sách</button></div>';
+    h+='<div class="qa-gram" id="qa-gram">= <b>'+round1(grams||unitToGrams(f,ph,S.qaUnit))+' g</b></div>';
+  } else if(!n){
+    h+='<div class="picked">Chọn món ở trên, nhập số lượng rồi bấm <b>Vào danh sách</b>. Chọn nhiều món tùy thích.</div>';
+  }
+  // nút hoàn tất
+  var eff=n+(f?1:0);
+  h+='<button type="button" class="btn '+(eff?'btn-primary':'')+' btn-block" id="qa-commit" style="margin-top:12px">'+(eff?(ic('plus',18)+' Xong · thêm '+eff+' món vào nhật ký'):'Đóng')+'</button>';
+  return h;}
 function sheetHTML(){
   var h='<div class="overlay" id="qa-overlay"><div class="sheet" role="dialog" aria-label="Thêm món">';
   h+='<div class="sheet-handle"></div>';
@@ -639,16 +792,32 @@ function render(){
   if(S.quickAdd){var qs=document.getElementById('qa-search');if(qs&&!S.qaFoodId){/* để con trỏ sẵn ở ô tìm */}}
 }
 
-function openQuickAdd(){S.quickAdd=true;S.qaSearch='';S.qaFoodId='';render();}
-function closeQuickAdd(){S.quickAdd=false;render();}
+function openQuickAdd(){S.quickAdd=true;S.qaSearch='';S.qaFoodId='';S.qaAmount='';S.qaUnit='g';S.qaCart=[];render();}
+function closeQuickAdd(){S.quickAdd=false;S.qaCart=[];render();}
+// Gom món đang chọn vào danh sách chờ.
+function qaPushCurrent(){var f=S.qaFoodId?foodById(S.qaFoodId):null;if(!f)return false;
+  var grams=unitToGrams(f,S.qaAmount,S.qaUnit)||(f.baseGrams||100);
+  var label=amountLabel(S.qaAmount||(S.qaUnit==='g'?(f.baseGrams||100):1),S.qaUnit);
+  S.qaCart.push({foodId:f.id,name:f.name,baseGrams:f.baseGrams||100,perBase:perBaseOf(f),grams:round1(grams),label:label});
+  S.qaFoodId='';S.qaAmount='';S.qaUnit='g';return true;}
+// Thêm toàn bộ danh sách chờ vào nhật ký (cộng dồn nếu trùng món).
+function qaCommit(){qaPushCurrent();
+  S.qaCart.forEach(function(it){var ex=null;for(var i=0;i<S.entries.length;i++)if(S.entries[i].foodId===it.foodId)ex=S.entries[i];
+    if(ex){ex.grams=round1(ex.grams+it.grams);ex.times=(ex.times||1)+1;ex.label=round1(ex.grams)+'g';}
+    else S.entries.unshift({id:uid(),foodId:it.foodId,name:it.name,baseGrams:it.baseGrams,perBase:it.perBase,grams:it.grams,label:it.label,times:1});});
+  persist();closeQuickAdd();}
 function selectMacro(k){S.selected=k;if(S.tab!=='overview'){S.tab='overview';render();}else updateDynamic();}
 
 // cập nhật lại phần list + footer trong sheet mà không dựng lại cả app (giữ ô tìm)
 function refreshSheet(){var l=document.getElementById('qa-list');if(l)l.innerHTML=qaListHTML();var f=document.getElementById('qa-foot');if(f)f.innerHTML=qaFooterHTML();bindSheetInner();}
 function bindSheetInner(){
   document.querySelectorAll('[data-fav]').forEach(function(b){b.onclick=function(ev){ev.stopPropagation();toggleFav(b.getAttribute('data-fav'));refreshSheet();};});
-  document.querySelectorAll('[data-pick]').forEach(function(b){b.onclick=function(){S.qaFoodId=b.getAttribute('data-pick');refreshSheet();var g=document.getElementById('qa-grams');if(g)g.focus();};});
-  var add=document.getElementById('qa-add');if(add)add.onclick=function(){var f=foodById(S.qaFoodId);if(!f)return;var g=pGrams(document.getElementById('qa-grams').value)||(f.baseGrams||100);S.entries.unshift({id:uid(),foodId:f.id,name:f.name,baseGrams:f.baseGrams||100,perBase:perBaseOf(f),grams:g});persist();closeQuickAdd();};
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.onclick=function(){S.qaFoodId=b.getAttribute('data-pick');S.qaUnit='g';S.qaAmount='';refreshSheet();var g=document.getElementById('qa-amt');if(g)g.focus();};});
+  document.querySelectorAll('[data-unit]').forEach(function(b){b.onclick=function(){S.qaUnit=b.getAttribute('data-unit');var f=document.getElementById('qa-foot');if(f)f.innerHTML=qaFooterHTML();bindSheetInner();var a=document.getElementById('qa-amt');if(a)a.focus();};});
+  var amt=document.getElementById('qa-amt');if(amt)amt.addEventListener('input',function(){S.qaAmount=amt.value;var f=foodById(S.qaFoodId);var gm=document.getElementById('qa-gram');if(f&&gm){var grams=unitToGrams(f,amt.value,S.qaUnit);gm.innerHTML='= <b>'+round1(grams||0)+' g</b>';}});
+  var add=document.getElementById('qa-add');if(add)add.onclick=function(){if(qaPushCurrent()){refreshSheet();var qs=document.getElementById('qa-search');if(qs){qs.focus();qs.select&&qs.select();}}};
+  document.querySelectorAll('[data-cart-rm]').forEach(function(b){b.onclick=function(){var i=parseInt(b.getAttribute('data-cart-rm'),10);S.qaCart.splice(i,1);refreshSheet();};});
+  var commit=document.getElementById('qa-commit');if(commit)commit.onclick=function(){if(S.qaCart.length||S.qaFoodId)qaCommit();else closeQuickAdd();};
 }
 
 function bind(){
@@ -666,7 +835,7 @@ function bind(){
   var td=document.getElementById('theme-dark');if(td)td.addEventListener('click',function(){S.theme='dark';persist();render();});
   app.querySelectorAll('[data-goal]').forEach(function(inp){inp.addEventListener('input',function(){S.goal[inp.getAttribute('data-goal')]=Math.max(0,Number(inp.value)||0);persist();});});
   // gram từng món (nhận dấu phẩy)
-  app.querySelectorAll('[data-grams]').forEach(function(inp){inp.addEventListener('input',function(){var id=inp.getAttribute('data-grams');var g=pGrams(inp.value);for(var i=0;i<S.entries.length;i++)if(S.entries[i].id===id)S.entries[i].grams=g;persist();updateDynamic();});});
+  app.querySelectorAll('[data-grams]').forEach(function(inp){inp.addEventListener('input',function(){var id=inp.getAttribute('data-grams');var g=round1(parseSumG(inp.value));for(var i=0;i<S.entries.length;i++)if(S.entries[i].id===id){S.entries[i].grams=g;S.entries[i].label=g+'g';S.entries[i].times=1;}persist();updateDynamic();});});
   app.querySelectorAll('[data-remove]').forEach(function(btn){btn.addEventListener('click',function(){var id=btn.getAttribute('data-remove');S.entries=S.entries.filter(function(e){return e.id!==id;});persist();render();});});
   var nd=document.getElementById('new-day');if(nd)nd.addEventListener('click',function(){if(confirm('Bắt đầu ngày mới? Nhật ký hôm nay sẽ được xoá.')){S.entries=[];S.selected='calories';persist();render();}});
   // google sheets
@@ -674,11 +843,22 @@ function bind(){
   var ls=document.getElementById('load-sheet');if(ls)ls.addEventListener('click',function(){if(!S.sheetUrl.trim()){S.sheetStatus={ok:false,msg:'Hãy nhập URL Google Sheets.'};render();return;}ls.disabled=true;ls.textContent='Đang nạp…';fetchFoodsFromSheet(S.sheetUrl).then(function(foods){S.sheetFoods=foods;S.sheetStatus={ok:true,msg:'Đã nạp '+foods.length+' thực phẩm.'};persist();render();}).catch(function(err){S.sheetStatus={ok:false,msg:err.message||'Lỗi.'};render();});});
   var cs=document.getElementById('clear-sheet');if(cs)cs.addEventListener('click',function(){S.sheetFoods=[];persist();render();});
   // món của tôi
+  var smf=document.getElementById('save-myfood');if(smf)smf.addEventListener('click',function(){
+    var name=(document.getElementById('cf-name').value||'').trim();
+    if(!name){S.myFoodsStatus={ok:false,msg:'Hãy nhập tên món.'};render();return;}
+    function gv(id){var el=document.getElementById(id);return el?(parseFloat(String(el.value).replace(',','.'))||0):0;}
+    function tv(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';}
+    var food={id:'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2,5),name:name,baseGrams:gv('cf-base')||100,calories:gv('cf-cal'),protein:gv('cf-pro'),carb:gv('cf-carb'),fat:gv('cf-fat'),fiber:gv('cf-fiber'),source:'custom'};
+    var units={};var u1n=tv('cf-u1n'),u1g=gv('cf-u1g'),u2n=tv('cf-u2n'),u2g=gv('cf-u2g');
+    if(u1n&&u1g>0)units[u1n]=u1g;if(u2n&&u2g>0)units[u2n]=u2g;
+    if(Object.keys(units).length)food.units=units;
+    S.customFoods.unshift(food);S.myFoodsStatus={ok:true,msg:'Đã lưu "'+name+'". Giờ có thể chọn ở nút + Thêm món.'};persist();render();});
   var imf=document.getElementById('import-myfoods');if(imf)imf.addEventListener('click',function(){var txt=document.getElementById('myfoods-text').value;if(!txt.trim()){S.myFoodsStatus={ok:false,msg:'Chưa có nội dung để nhập.'};render();return;}var res=parseMyFoods(txt);if(res.foods.length>0)S.customFoods=res.foods.concat(S.customFoods);var msg=[];if(res.foods.length)msg.push('Đã thêm '+res.foods.length+' món.');if(res.errors.length)msg.push(res.errors.join(' '));S.myFoodsStatus={ok:res.foods.length>0,msg:msg.join(' ')};persist();render();});
   app.querySelectorAll('[data-delcustom]').forEach(function(btn){btn.addEventListener('click',function(){var id=btn.getAttribute('data-delcustom');S.customFoods=S.customFoods.filter(function(f){return f.id!==id;});S.favorites=S.favorites.filter(function(x){return x!==id;});persist();render();});});
   // xem chi tiết 1 ngày
   app.querySelectorAll('[data-day]').forEach(function(b){b.addEventListener('click',function(){S.dayView=b.getAttribute('data-day');render();});});
-  if(S.dayView){var dov=document.getElementById('day-overlay');if(dov)dov.addEventListener('click',function(ev){if(ev.target===dov){S.dayView=null;render();}});var dcl=document.getElementById('day-close');if(dcl)dcl.addEventListener('click',function(){S.dayView=null;render();});}
+  if(S.dayView){var dov=document.getElementById('day-overlay');if(dov)dov.addEventListener('click',function(ev){if(ev.target===dov){S.dayView=null;render();}});var dcl=document.getElementById('day-close');if(dcl)dcl.addEventListener('click',function(){S.dayView=null;render();});
+    var dsave=document.getElementById('day-save');if(dsave)dsave.addEventListener('click',function(){var vals={};MACRO_KEYS.forEach(function(k){var el=document.getElementById('md-'+k);vals[k]=el?(parseFloat(String(el.value).replace(',','.'))||0):0;});saveManualDay(S.dayView,vals);render();});}
   // FAB
   var fab=document.getElementById('fab-add');if(fab)fab.addEventListener('click',openQuickAdd);
   // sheet
@@ -691,9 +871,8 @@ function bind(){
 }
 
 function updateDynamic(){
-  var wrap=document.querySelector('.donut-wrap');if(wrap)wrap.innerHTML=donutSVG();
-  var view=document.querySelector('.viewing');if(view)view.outerHTML=viewingHTML();
-  var panel=document.querySelector('.macro-table');if(panel)panel.outerHTML=panelHTML();
+  var rw=document.querySelector('.rings-wrap');if(rw)rw.innerHTML=ringsSVG();
+  var mb=document.querySelector('.rlegend');if(mb)mb.outerHTML=ringsLegend();
   var grid=document.querySelector('.remaining-grid');if(grid)grid.outerHTML=remainingHTML();
   document.querySelectorAll('.food-item').forEach(function(el,i){var e=S.entries[i];if(!e)return;var m=entryMacros(e);var chips=el.querySelector('.fmacros');if(chips)chips.innerHTML='<span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span>';var meta=el.querySelector('.fmeta');if(meta)meta.textContent=round1(e.grams)+'g đã nấu chín · gốc '+round1(e.baseGrams)+'g';});
   document.querySelectorAll('[data-macro]').forEach(function(el){el.onclick=function(){selectMacro(el.getAttribute('data-macro'));};});

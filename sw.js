@@ -1,6 +1,6 @@
 /* MacroDay service worker — cache app shell để chạy offline.
    Đổi CACHE mỗi lần cập nhật nội dung để trình duyệt lấy bản mới. */
-var CACHE = 'macroday-v8';
+var CACHE = 'macroday-v13';
 var ASSETS = [
   './',
   './index.html',

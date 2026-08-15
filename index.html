@@ -16,29 +16,31 @@
 <style>
 /* ===== MacroDay — nhấn xanh dương tươi, macro đa sắc, nền sáng dễ đọc ===== */
 :root{
-  /* thang "emerald" giữ tên biến nhưng nay là XANH DƯƠNG (để mọi chỗ tự đổi màu) */
-  --emerald-50:#eef3ff;--emerald-100:#dce7ff;--emerald-200:#b9ccff;--emerald-300:#8fb0ff;
-  --emerald-400:#5b8dff;--emerald-500:#3b6ef6;--emerald-600:#2456d8;--emerald-700:#1d47b8;--emerald-800:#173a97;
-  --bg:#f4f6fc;--bg1:#e7edfc;--bg2:#f1f4fd;--surface:#ffffff;--surface-2:#f3f5fc;
-  --input-bg:#ffffff;--input-border:#dbe1f2;--text:#191c33;--text-soft:#4a4f6b;
-  --text-muted:#868bab;--accent:var(--emerald-600);--accent-strong:var(--emerald-700);--accent-soft:var(--emerald-100);
-  --border:#e5e8f5;--ring:rgba(59,110,246,.22);--track:#e9ecf6;
-  --shadow-sm:0 1px 2px rgba(30,50,120,.06);--shadow-md:0 8px 24px rgba(40,70,150,.10);--shadow-lg:0 18px 44px rgba(40,70,150,.18);
-  --radius:20px;--radius-sm:14px;--danger:#e11d48;--ok:#16a34a;--warn:#d97706;--star:#f59e0b;
-  --c-cal:#ff6b35;--c-pro:#ff477e;--c-carb:#f5b400;--c-fat:#7c4dff;--c-fiber:#00bcd4;
+  /* nhấn CAM cho vòng & FAB, chữ gần đen, nền trắng/xám — theo phong cách ảnh */
+  --orange-400:#ff9a4d;--orange-500:#ff7a1a;--orange-600:#f26410;
+  --bg:#f1f2f5;--bg1:#eceef2;--bg2:#f5f6f9;--surface:#ffffff;--surface-2:#f6f7f9;
+  --input-bg:#ffffff;--input-border:#e4e7ee;--text:#14161c;--text-soft:#5b616e;
+  --text-muted:#969ba8;--accent:#20242e;--accent-strong:#0e1015;--accent-soft:#eef0f4;
+  --border:#ececf1;--ring:rgba(34,37,46,.16);--track:#ededf1;
+  --shadow-sm:0 1px 2px rgba(20,22,28,.05);--shadow-md:0 10px 26px rgba(20,22,28,.08);--shadow-lg:0 20px 46px rgba(20,22,28,.14);
+  --radius:22px;--radius-sm:14px;--danger:#e11d48;--ok:#16a34a;--warn:#d97706;--star:#f59e0b;
+  --app-bg:linear-gradient(180deg,#3f86e0 0%,#5a9be8 26%,#83b4ef 50%,#c9dcf3 76%,#eef1f6 100%);
+  --hero-ink:#ffffff;
 }
 [data-theme='dark']{
-  --bg:#080b1a;--bg1:#121a3c;--bg2:#0a0f26;--surface:#141a30;--surface-2:#1d2648;
-  --input-bg:#242e58;--input-border:#3d4a86;--text:#f5f7ff;--text-soft:#cdd3f0;--text-muted:#949cc4;
-  --accent:#6f9bff;--accent-strong:#9fbcff;--accent-soft:#233366;--border:#2d3868;
-  --ring:rgba(111,155,255,.42);--shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 10px 28px rgba(0,0,0,.5);--shadow-lg:0 20px 48px rgba(0,0,0,.6);--track:#2c3768;
+  --app-bg:linear-gradient(180deg,#1a2c52 0%,#16203a 30%,#111319 65%,#0d0e12 100%);
+  --hero-ink:#ffffff;
+  --bg:#0d0e12;--bg1:#15171d;--bg2:#0b0c10;--surface:#191b21;--surface-2:#21242c;
+  --input-bg:#23262f;--input-border:#343945;--text:#f3f4f7;--text-soft:#c1c6d0;--text-muted:#868c99;
+  --accent:#f3f4f7;--accent-strong:#ffffff;--accent-soft:#262a33;--border:#282c35;
+  --ring:rgba(255,255,255,.2);--shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 10px 28px rgba(0,0,0,.5);--shadow-lg:0 20px 48px rgba(0,0,0,.6);--track:#2a2e38;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
   color:var(--text);background:var(--bg);
-  background-image:radial-gradient(1100px 500px at 100% -10%,var(--bg1),transparent 60%),radial-gradient(900px 460px at -10% 8%,var(--bg2),transparent 55%);
-  background-attachment:fixed;-webkit-font-smoothing:antialiased;min-height:100dvh;-webkit-tap-highlight-color:transparent}
+  background-image:var(--app-bg);
+  background-attachment:fixed;background-repeat:no-repeat;-webkit-font-smoothing:antialiased;min-height:100dvh;-webkit-tap-highlight-color:transparent}
 button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 input,select,button,textarea{font-family:inherit;font-size:16px}
 svg{display:block}
@@ -47,13 +49,13 @@ svg{display:block}
 .app{max-width:760px;margin:0 auto;padding:16px 16px 108px;padding-top:calc(14px + env(safe-area-inset-top))}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand-logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--emerald-400),var(--emerald-700));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-md);flex:none}
-.brand h1{font-size:21px;margin:0;letter-spacing:-.02em;font-weight:800;background:linear-gradient(115deg,var(--accent),var(--accent-strong));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.brand p{margin:0;font-size:12px;color:var(--text-muted)}
-.icon-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text-soft);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.brand-logo{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;color:#fff;flex:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.brand h1{font-size:21px;margin:0;letter-spacing:-.02em;font-weight:800;color:var(--hero-ink)}
+.brand p{margin:0;font-size:12px;color:rgba(255,255,255,.8)}
+.icon-btn{width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.2);color:#fff;display:grid;place-items:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .icon-btn:active{transform:scale(.95)}
 
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:none;padding:18px}
 .card+.card{margin-top:14px}
 .card-title{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;letter-spacing:-.01em;margin:0 0 14px;color:var(--text)}
 .card-title svg{color:var(--accent)}
@@ -62,7 +64,7 @@ svg{display:block}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);border-radius:13px;padding:12px 16px;font-weight:600;font-size:14.5px;transition:transform .1s,box-shadow .15s,background .15s;min-height:48px}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
-.btn-primary{background:linear-gradient(135deg,var(--emerald-500),var(--emerald-700));color:#fff;border-color:transparent;box-shadow:var(--shadow-sm)}
+.btn-primary{background:var(--accent);color:var(--surface);border-color:transparent;box-shadow:var(--shadow-sm)}
 .btn-primary:hover{box-shadow:var(--shadow-md)}
 .btn-block{width:100%}
 .btn-danger{color:var(--danger);border-color:transparent;background:transparent;min-height:44px;padding:8px 10px}
@@ -72,7 +74,7 @@ svg{display:block}
 
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:12.5px;font-weight:700;color:var(--text-soft)}
-.input,.select{width:100%;background:var(--input-bg);border:2px solid var(--input-border);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);font-weight:600;outline:none;transition:border-color .15s,box-shadow .15s;min-height:50px;box-shadow:var(--shadow-sm)}
+.input,.select{width:100%;background:var(--input-bg);border:1.5px solid var(--input-border);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);font-weight:600;outline:none;transition:border-color .15s,box-shadow .15s;min-height:50px;box-shadow:none}
 .input:focus,.select:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
 .input::placeholder{color:var(--text-muted);font-weight:500}
 .input::placeholder{color:var(--text-muted)}
@@ -143,21 +145,83 @@ textarea.input{resize:vertical;min-height:110px;line-height:1.55}
 .remaining-item .swatch{width:10px;height:10px;border-radius:3px}
 .remaining-item .rv{font-size:22px;font-weight:800;letter-spacing:-.03em}
 .remaining-item .rv small{font-size:12px;font-weight:700;color:var(--text-muted);margin-left:2px}
-.remaining-item.done{border-color:var(--emerald-300);background:var(--accent-soft)}
+.remaining-item.done{border-color:var(--ok);background:var(--accent-soft)}
 .remaining-item.done .rv{color:var(--ok)}
 
 .food-list{display:flex;flex-direction:column;gap:10px}
-.food-item{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:13px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--surface-2)}
-.food-item .fname{font-weight:700;font-size:14.5px}
-.food-item .fmeta{font-size:12px;color:var(--text-muted);margin-top:2px}
-.food-item .fmacros{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.food-item{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:center;padding:12px;border-radius:16px;border:1px solid var(--border);background:var(--surface)}
+.favatar{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-weight:800;font-size:18px;flex:none}
+.fmain{min-width:0}
+.food-item .fname{font-weight:700;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.food-item .fmeta{font-size:12px;color:var(--text-muted);margin-top:1px}
+.food-item .fmeta b{color:var(--text-soft);font-weight:700}
+.fchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.fchip{font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap}
 .food-item .fright{display:flex;align-items:center;gap:6px}
-.food-item .fgrams{width:78px}
-.food-item .fgrams input{text-align:right;padding:9px 10px;min-height:44px}
+.fgi{width:62px;text-align:right;padding:8px 9px;min-height:40px;font-size:14px}
+.ficon{width:40px;height:40px;border-radius:11px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-muted);display:grid;place-items:center;flex:none}
+.ficon:active{transform:scale(.94)}
+.chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+/* ===== Hero xanh gradient + kính mờ ===== */
+.hero-blue{padding:2px 2px 6px;margin-bottom:16px}
+.days-b{display:flex;justify-content:space-between;gap:2px;margin-bottom:18px}
+.dayb{flex:1;border:none;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;color:rgba(255,255,255,.72);border-radius:14px}
+.dayb-dow{font-size:12px;font-weight:700}
+.dayb-num{font-size:16px;font-weight:700}
+.dayb.on{color:#fff;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dayb.on .dayb-dow{font-weight:800}
+.dayb.on .dayb-num{font-size:20px;font-weight:800}
+.dayb:active{opacity:.7}
+.hero-seg{display:flex;justify-content:center;margin-bottom:14px}
+.hero-seg .seg-in{display:inline-flex;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px;gap:2px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hero-seg span{padding:8px 18px;border-radius:999px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.8)}
+.hero-seg span.on{background:#fff;color:#1c2740}
+.cal-big{text-align:center;font-size:76px;line-height:1;font-weight:800;color:#fff;letter-spacing:-.04em;margin-top:4px;text-shadow:0 4px 24px rgba(20,40,90,.18)}
+.cal-sub{text-align:center;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85);margin-top:8px}
+.mglass{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.mgcard{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:20px;padding:14px 10px;text-align:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.mg-lbl{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.9)}
+.mg-pct{font-size:26px;font-weight:800;color:#fff;margin-top:6px;letter-spacing:-.02em}
+.mg-sub{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.75);margin-top:2px}
+/* Day strip */
+.days-card{padding:14px 12px}
+.days-head{display:flex;align-items:baseline;justify-content:space-between;padding:0 4px 10px}
+.days-today{font-size:17px;font-weight:800;letter-spacing:-.02em}
+.days-date{font-size:12.5px;color:var(--text-muted);font-weight:600}
+.days{display:flex;justify-content:space-between;gap:2px}
+.day{flex:1;border:none;background:transparent;display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0}
+.day-dow{font-size:11px;font-weight:700;color:var(--text-muted)}
+.day.today .day-dow{color:var(--text)}
+.day-circle{position:relative;width:40px;height:40px;display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--text-soft)}
+.day-circle.today{background:var(--accent);color:var(--surface);border-radius:50%;font-weight:800}
+.day-ring{position:absolute;inset:0;width:40px;height:40px}
+.day-num{position:relative;z-index:1}
+.day:active{opacity:.7}
+/* Hero */
+.hero-card{padding:20px 18px}
+.hero{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
+.hero-stat{text-align:center;flex:none}
+.hnum{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.hlbl{font-size:12.5px;font-weight:600;color:var(--text-muted);margin-top:2px}
+.hero-ring{flex:none;width:60%;max-width:220px}
+.hero-ring-svg{width:100%;height:auto;overflow:visible}
+.mbars2{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin-top:16px}
+.mb2{text-align:left;padding:12px 13px;border-radius:16px}
+.mb2-lbl{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.01em;margin-bottom:6px}
+.mb2-dot{width:8px;height:8px;border-radius:50%;flex:none}
+.mb2-top{margin-bottom:9px;display:flex;align-items:baseline;gap:3px}
+.mb2-top b{font-weight:800;font-size:22px;letter-spacing:-.02em}
+.mb2-top span{color:var(--text-muted);font-weight:700;font-size:12px}
+.mb2-bar{height:8px;border-radius:999px;background:rgba(0,0,0,.06);overflow:hidden}
+[data-theme='dark'] .mb2-bar{background:rgba(255,255,255,.1)}
+.mb2-bar>span{display:block;height:100%;border-radius:999px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.log-head{display:flex;align-items:center;gap:8px;border:none;background:transparent;padding:0;color:var(--text)}
+.log-count{font-size:12px;font-weight:800;color:var(--text-muted);background:var(--accent-soft);border-radius:999px;padding:1px 9px;min-width:22px}
+.chev-r{display:grid;place-items:center;color:var(--text-muted);transition:transform .2s;transform:rotate(-90deg)}
+.chev-r.open{transform:rotate(0deg)}
 
 .empty{text-align:center;padding:30px 16px;color:var(--text-muted)}
-.empty svg{margin:0 auto 10px;color:var(--emerald-300)}
+.empty svg{margin:0 auto 10px;color:var(--orange-400)}
 .empty .t{font-size:14px}
 .divider{height:1px;background:var(--border);margin:16px 0;border:none}
 .row-between{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -179,7 +243,7 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 [data-theme='dark'] .tabbar{box-shadow:0 -6px 24px rgba(0,0,0,.4)}
 .tabbar-inner{max-width:760px;margin:0 auto;width:100%;display:flex}
 .tab-btn{flex:1;border:none;background:transparent;color:var(--text-muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 4px;min-height:60px;font-size:11px;font-weight:600;position:relative}
-.tab-btn .badge{position:absolute;top:8px;right:calc(50% - 26px);min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:var(--emerald-500);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center}
+.tab-btn .badge{position:absolute;top:8px;right:calc(50% - 26px);min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:var(--orange-500);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center}
 .tab-btn.active{color:var(--accent-strong)}
 .tab-btn:active{opacity:.7}
 @media(min-width:820px){
@@ -191,7 +255,7 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 }
 
 /* ===== FAB ===== */
-.fab{position:fixed;right:18px;bottom:calc(74px + env(safe-area-inset-bottom));z-index:60;height:56px;padding:0 22px 0 18px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--emerald-500),var(--emerald-700));color:#fff;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transition:transform .12s}
+.fab{position:fixed;right:18px;bottom:calc(74px + env(safe-area-inset-bottom));z-index:60;width:58px;height:58px;padding:0;border:none;border-radius:50%;background:#1b1e26;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(20,22,30,.4);transition:transform .12s}
 .fab:active{transform:scale(.95)}
 @media(min-width:820px){.fab{bottom:24px;right:calc(50% - 380px + 8px)}}
 @media(max-width:840px){.fab{right:16px}}
@@ -234,7 +298,7 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 .qa-cchip button:active{opacity:1}
 
 /* ===== Hồ sơ ===== */
-.profile-chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 13px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--accent-strong);font-weight:700;font-size:13.5px;box-shadow:var(--shadow-sm);max-width:150px}
+.profile-chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 13px;border-radius:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.2);color:#fff;font-weight:700;font-size:13.5px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);max-width:150px}
 .profile-chip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .profile-chip:active{transform:scale(.96)}
 .profile-list{display:flex;flex-direction:column;gap:9px}
@@ -253,8 +317,8 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
 .week-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;min-width:0}
 .week-val{font-size:9.5px;font-weight:700;color:var(--text-muted);height:12px;line-height:1}
 .week-bar{flex:1;width:100%;display:flex;align-items:flex-end}
-.week-bar>span{display:block;width:100%;border-radius:6px 6px 3px 3px;min-height:3px;background:var(--emerald-300);transition:height .4s cubic-bezier(.4,0,.2,1)}
-.week-col.today .week-bar>span{background:linear-gradient(180deg,var(--emerald-400),var(--emerald-600))}
+.week-bar>span{display:block;width:100%;border-radius:6px 6px 3px 3px;min-height:3px;background:var(--input-border);transition:height .4s cubic-bezier(.4,0,.2,1)}
+.week-col.today .week-bar>span{background:linear-gradient(180deg,var(--orange-400),var(--orange-600))}
 .week-lbl{font-size:10px;color:var(--text-muted);font-weight:600;text-align:center;line-height:1.25}
 .week-col.today .week-lbl{color:var(--accent-strong);font-weight:800}
 .fade{animation:fadeIn .25s ease}
@@ -271,12 +335,12 @@ details.collapsible[open]>summary .chev{transform:rotate(180deg)}
    (tự đẩy lên đầu), gõ gram tự do (nhận dấu phẩy). Sửa dữ liệu: BUILTIN_FOODS.
    ===================================================================== */
 
-var MACRO_KEYS=['calories','protein','carb','fat','fiber'];
-var MACRO_LABELS={calories:'Calories',protein:'Protein',carb:'Carb',fat:'Chất béo',fiber:'Chất xơ'};
-var MACRO_UNITS={calories:'kcal',protein:'g',carb:'g',fat:'g',fiber:'g'};
-var MACRO_COLORS={calories:'#ff6b35',protein:'#ff477e',carb:'#f5b400',fat:'#7c4dff',fiber:'#00bcd4'};
-// phiên bản đậm hơn cho hiệu ứng khối 3D của biểu đồ
-var MACRO_COLORS_DARK={calories:'#e04e18',protein:'#e11d6b',carb:'#cf9500',fat:'#5f30e6',fiber:'#0295a8'};
+var MACRO_KEYS=['calories','carb','protein','fat','fiber','sugar'];
+var MACRO_LABELS={calories:'Calories',carb:'Carb',protein:'Protein',fat:'Chất béo',fiber:'Chất xơ',sugar:'Đường'};
+var MACRO_UNITS={calories:'kcal',carb:'g',protein:'g',fat:'g',fiber:'g',sugar:'g'};
+var MACRO_COLORS={calories:'#ff7a1a',carb:'#3b82f6',protein:'#ff4d6d',fat:'#ffa726',fiber:'#10b981',sugar:'#a855f7'};
+var MACRO_COLORS_DARK={calories:'#e2660b',carb:'#2563eb',protein:'#e11d48',fat:'#f97316',fiber:'#059669',sugar:'#9333ea'};
+var BAR_MACROS=['carb','protein','fat','fiber','sugar']; // các thanh macro (calo hiển thị ở vòng)
 var RING_KEYS=['protein','carb','fat','fiber'];
 
 function ic(name,s){s=s||22;var p={
@@ -339,7 +403,9 @@ var BUILTIN_FOODS=[
   'milk':{'ly':200,'cốc':200,'hộp':180},'yogurt':{'hộp':100},'bread':{'lát':25,'ổ':90},
   'pho':{'tô':400,'bát':400}
 };BUILTIN_FOODS.forEach(function(f){if(U[f.id])f.units=U[f.id];});})();
-var DEFAULT_GOAL={calories:2000,protein:120,carb:220,fat:60,fiber:30};
+// Gắn lượng đường (g mỗi baseGrams) cho món dựng sẵn (ước lượng; món không ghi = 0).
+(function(){var SG={banana:12,apple:10,'sweet-potato':6,potato:1,oats:0.5,milk:5,yogurt:4,bread:5,pho:2,tofu:0.5,broccoli:1.4,spinach:0.4,'rice-brown':0.4,almond:4};BUILTIN_FOODS.forEach(function(f){f.sugar=SG[f.id]||0;});})();
+var DEFAULT_GOAL={calories:2000,carb:220,protein:120,fat:60,fiber:30,sugar:50};
 
 function round1(n){var r=Math.round(n*10)/10;return r===0?0:r;}
 function safe(n){return isFinite(n)&&n>0?n:0;}
@@ -359,10 +425,9 @@ function unitToGrams(food,amount,unit){amount=parseFloat(String(amount==null?'':
   if(GLOBAL_UNITS[nu]!=null)return amount*GLOBAL_UNITS[nu];
   return amount;}
 function amountLabel(amount,unit){var a=parseFloat(String(amount==null?'':amount).replace(',','.'))||0;return round1(a)+(unit&&unit!=='g'?(' '+unit):'g');}
-function perBaseOf(f){return {calories:f.calories,protein:f.protein,carb:f.carb,fat:f.fat,fiber:f.fiber};}
-function entryMacros(e){var base=safe(e.baseGrams)||100,factor=safe(e.grams)/base;
-  return {calories:round1(e.perBase.calories*factor),protein:round1(e.perBase.protein*factor),carb:round1(e.perBase.carb*factor),fat:round1(e.perBase.fat*factor),fiber:round1(e.perBase.fiber*factor)};}
-function totalMacros(entries){var acc={calories:0,protein:0,carb:0,fat:0,fiber:0};
+function perBaseOf(f){var o={};MACRO_KEYS.forEach(function(k){o[k]=f[k]||0;});return o;}
+function entryMacros(e){var base=safe(e.baseGrams)||100,factor=safe(e.grams)/base;var m={};MACRO_KEYS.forEach(function(k){m[k]=round1(((e.perBase&&e.perBase[k])||0)*factor);});return m;}
+function totalMacros(entries){var acc={};MACRO_KEYS.forEach(function(k){acc[k]=0;});
   entries.forEach(function(e){var m=entryMacros(e);MACRO_KEYS.forEach(function(k){acc[k]+=m[k];});});
   MACRO_KEYS.forEach(function(k){acc[k]=round1(acc[k]);});return acc;}
 function remainingMacros(goal,used){var r={};MACRO_KEYS.forEach(function(k){r[k]=round1(Math.max(0,goal[k]-used[k]));});return r;}
@@ -439,7 +504,7 @@ function loadLog(){rolloverIfNeeded();return read(K.log,[]);}
 // Dữ liệu 7 ngày (hôm nay lấy tổng đang chạy, ngày cũ lấy từ lịch sử).
 function weekData(){
   var today=todayKey();
-  var days=[],totals={calories:0,protein:0,carb:0,fat:0,fiber:0};
+  var days=[],totals={};MACRO_KEYS.forEach(function(k){totals[k]=0;});
   for(var i=HISTORY_DAYS-1;i>=0;i--){var key=offsetKey(i);var isToday=key===today;
     var t=dayTotals(key);
     MACRO_KEYS.forEach(function(k){totals[k]+=t[k]||0;});
@@ -455,7 +520,7 @@ var S={
   entries:loadLog(),customFoods:read(K.custom,[]),sheetFoods:read(K.sheet,[]),sheetUrl:read(K.sheetUrl,''),
   favorites:read(K.fav,[]),
   selected:'calories',sheetStatus:null,pasteStatus:null,myFoodsStatus:null,
-  quickAdd:false,qaSearch:'',qaFoodId:'',qaUnit:'g',qaAmount:'',qaCart:[],dayView:null
+  quickAdd:false,qaSearch:'',qaFoodId:'',qaUnit:'g',qaAmount:'',qaCart:[],dayView:null,logCollapsed:false,heroTab:'nutri'
 };
 // Nạp lại toàn bộ dữ liệu theo hồ sơ đang chọn (khi đổi/ thêm hồ sơ).
 function applyProfile(pid){
@@ -487,7 +552,7 @@ function rowToFood(raw,i){var map={};for(var key in raw)if(raw.hasOwnProperty(ke
   function pick(){for(var j=0;j<arguments.length;j++){var k=arguments[j];if(map[k]!==undefined&&map[k]!=='')return map[k];}return undefined;}
   var name=String(pick('name','ten','tenmon','thucpham','mon')||'').trim();if(!name)return null;
   var baseGrams=toNum(pick('basegrams','gram','grams','khoiluong','baseg'))||100;
-  return {id:'sheet-'+normKey(name)+'-'+i,name:name,baseGrams:baseGrams,calories:toNum(pick('calories','calo','kcal','nangluong')),protein:toNum(pick('protein','dam','chatdam')),carb:toNum(pick('carb','carbs','tinhbot','carbohydrate','bot')),fat:toNum(pick('fat','beo','chatbeo','lipid')),fiber:toNum(pick('fiber','xo','chatxo','fibre')),source:'sheet'};}
+  return {id:'sheet-'+normKey(name)+'-'+i,name:name,baseGrams:baseGrams,calories:toNum(pick('calories','calo','kcal','nangluong')),protein:toNum(pick('protein','dam','chatdam')),carb:toNum(pick('carb','carbs','tinhbot','carbohydrate','bot')),fat:toNum(pick('fat','beo','chatbeo','lipid')),fiber:toNum(pick('fiber','xo','chatxo','fibre')),sugar:toNum(pick('sugar','duong')),source:'sheet'};}
 function normalizeRecords(recs){var out=[];recs.forEach(function(r,i){var f=rowToFood(r,i);if(f)out.push(f);});return out;}
 function loadGviz(url){return fetch(url).then(function(res){return res.text();}).then(function(text){var start=text.indexOf('{'),end=text.lastIndexOf('}');if(start===-1||end===-1)throw new Error('Định dạng gviz không hợp lệ.');var json=JSON.parse(text.slice(start,end+1));var cols=json.table.cols.map(function(c){return (c.label||c.id||'').toString();});return json.table.rows.map(function(row){var o={};row.c.forEach(function(cell,i){o[cols[i]||('col'+i)]=cell&&cell.v!=null?String(cell.v):'';});return o;});});}
 var jsonpN=0;
@@ -500,7 +565,7 @@ function parseMyFoods(text){var lines=text.split('\n').map(function(l){return l.
     if(parts.length<6){errors.push('Dòng '+(idx+1)+': cần đủ 6 cột (tên, gram, protein, carb, fat, calo).');return;}
     var name=parts[0];if(!name){errors.push('Dòng '+(idx+1)+': thiếu tên món.');return;}
     var num=function(v){var n=parseFloat(String(v).replace(',','.'));return isFinite(n)&&n>0?n:0;};
-    foods.push({id:'custom-'+Date.now()+'-'+idx+'-'+Math.random().toString(36).slice(2,5),name:name,baseGrams:num(parts[1])||100,protein:num(parts[2]),carb:num(parts[3]),fat:num(parts[4]),calories:num(parts[5]),fiber:0,source:'custom'});});
+    foods.push({id:'custom-'+Date.now()+'-'+idx+'-'+Math.random().toString(36).slice(2,5),name:name,baseGrams:num(parts[1])||100,protein:num(parts[2]),carb:num(parts[3]),fat:num(parts[4]),calories:num(parts[5]),fiber:num(parts[6]),sugar:num(parts[7]),source:'custom'});});
   return {foods:foods,errors:errors};}
 
 // ---------- Donut ----------
@@ -595,18 +660,66 @@ function remainingHTML(){var used=totalMacros(S.entries),goal=S.goal,left=remain
   h+='</div>';return h;}
 
 function foodItemHTML(e){var m=entryMacros(e);
-  var meta=(e.label?e.label:round1(e.grams)+'g')+' đã nấu chín'+((e.times&&e.times>1)?(' · ăn '+e.times+' lần'):'')+' · gốc '+round1(e.baseGrams)+'g';
-  var h='<div class="food-item"><div><div class="fname">'+esc(e.name)+'</div><div class="fmeta">'+meta+'</div>';
-  h+='<div class="fmacros"><span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span></div></div>';
-  h+='<div class="fright"><div class="field fgrams"><input class="input" type="text" inputmode="decimal" value="'+(e.grams===0?'':e.grams)+'" placeholder="0" data-grams="'+e.id+'" aria-label="Khối lượng '+esc(e.name)+'"></div><button type="button" class="btn btn-danger" data-remove="'+e.id+'" aria-label="Xoá '+esc(e.name)+'">'+ic('trash',18)+'</button></div></div>';return h;}
+  var meta=(e.label?e.label:round1(e.grams)+'g')+((e.times&&e.times>1)?(' · '+e.times+' lần'):'');
+  var initial=esc((e.name||'?').trim().charAt(0).toUpperCase());
+  var h='<div class="food-item">';
+  h+='<div class="favatar" style="background:'+MACRO_COLORS.calories+'1f;color:'+MACRO_COLORS.calories+'">'+initial+'</div>';
+  h+='<div class="fmain"><div class="fname">'+esc(e.name)+'</div><div class="fmeta"><b>'+round1(m.calories)+' kcal</b> · '+meta+'</div>';
+  h+='<div class="fchips"><span class="fchip" style="color:'+MACRO_COLORS.carb+';background:'+MACRO_COLORS.carb+'1a">C '+round1(m.carb)+'g</span><span class="fchip" style="color:'+MACRO_COLORS.protein+';background:'+MACRO_COLORS.protein+'1a">P '+round1(m.protein)+'g</span><span class="fchip" style="color:'+MACRO_COLORS.fat+';background:'+MACRO_COLORS.fat+'1a">F '+round1(m.fat)+'g</span></div></div>';
+  h+='<div class="fright"><input class="input fgi" type="text" inputmode="decimal" value="'+(e.grams===0?'':e.grams)+'" placeholder="0" data-grams="'+e.id+'" aria-label="gram '+esc(e.name)+'"><button type="button" class="ficon" data-remove="'+e.id+'" aria-label="Xoá '+esc(e.name)+'">'+ic('trash',16)+'</button></div>';
+  h+='</div>';return h;}
 
-// ---------- Overview (biểu đồ gọn → còn lại → nhật ký) ----------
+// ---------- Overview kiểu ảnh: nền xanh + số calo lớn + thẻ macro kính ----------
+function daysHTML(){var h='<div class="days-b">';
+  for(var i=HISTORY_DAYS-1;i>=0;i--){var key=offsetKey(i);var isToday=key===todayKey();var dnum=parseInt(key.split('-')[2],10);var dow=dowLabel(key);
+    h+='<button type="button" class="dayb'+(isToday?' on':'')+'" data-day="'+key+'"><span class="dayb-dow">'+dow+'</span><span class="dayb-num">'+dnum+'</span></button>';}
+  h+='</div>';return h;}
+function macroDistribution(u){var cP=(u.protein||0)*4,cC=(u.carb||0)*4,cF=(u.fat||0)*9;var s=cP+cC+cF;if(s<=0)return {protein:0,carb:0,fat:0};return {protein:Math.round(cP/s*100),carb:Math.round(cC/s*100),fat:Math.round(cF/s*100)};}
+function heroBlueHTML(){var used=totalMacros(S.entries),goal=S.goal;var eaten=Math.round(used.calories);var remain=Math.round(goal.calories-used.calories);var dist=macroDistribution(used);var nutri=S.heroTab!=='foods';
+  var h=daysHTML();
+  h+='<div class="hero-seg"><div class="seg-in"><span class="'+(nutri?'on':'')+'" data-herotab="nutri">Dinh dưỡng</span><span class="'+(nutri?'':'on')+'" data-herotab="foods">Món ăn</span></div></div>';
+  if(nutri){
+    h+='<div class="cal-big">'+eaten+'</div>';
+    h+='<div class="cal-sub">Calo đã ăn · '+(remain>=0?('còn '+remain):('vượt '+(-remain)))+' / '+Math.round(goal.calories)+' kcal</div>';
+    h+='<div class="mglass">';
+    [['protein','Protein'],['carb','Carb'],['fat','Chất béo']].forEach(function(pp){var k=pp[0];h+='<div class="mgcard"><div class="mg-lbl">'+pp[1]+'</div><div class="mg-pct">'+dist[k]+'%</div><div class="mg-sub">'+round1(used[k])+'/'+round1(goal[k])+'g</div></div>';});
+    h+='</div>';
+  }
+  return h;}
+
+function heroRingSVG(){var used=totalMacros(S.entries),goal=S.goal;var u=used.calories,g=goal.calories;var remain=Math.round(g-u);var p=pct(u,g);var over=rawPct(u,g)>100;var deg=Math.max(p*3.6,0.01);
+  var h='<svg class="hero-ring-svg" viewBox="0 0 200 200" role="img" aria-label="Calo còn lại">';
+  h+='<circle cx="100" cy="100" r="78" fill="none" stroke="var(--track)" stroke-width="16"/>';
+  var d=arcPath(100,100,78,0,deg);
+  h+='<path d="'+d+'" fill="none" stroke="'+(over?'var(--danger)':MACRO_COLORS.calories)+'" stroke-width="16" stroke-linecap="round"/>';
+  h+='<text x="100" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="12.5" font-weight="700">Còn lại</text>';
+  h+='<text x="100" y="119" text-anchor="middle" fill="'+(remain<0?'var(--danger)':'var(--text)')+'" font-size="40" font-weight="800" letter-spacing="-1.5">'+remain+'</text>';
+  h+='<text x="100" y="139" text-anchor="middle" fill="var(--text-muted)" font-size="12.5" font-weight="600">kcal</text>';
+  h+='</svg>';return h;}
+
+function macroBars2HTML(){var used=totalMacros(S.entries),goal=S.goal;var h='<div class="mbars2">';
+  BAR_MACROS.forEach(function(k){var u=round1(used[k]),g=round1(goal[k]),p=pct(u,g),over=rawPct(u,g)>100;var c=MACRO_COLORS[k];
+    h+='<div class="mb2" style="background:'+c+'14">';
+    h+='<div class="mb2-lbl" style="color:'+c+'"><span class="mb2-dot" style="background:'+c+'"></span>'+MACRO_LABELS[k]+'</div>';
+    h+='<div class="mb2-top"><b style="color:'+(over?'var(--danger)':'var(--text)')+'">'+u+'</b><span>/'+g+MACRO_UNITS[k]+'</span></div>';
+    h+='<div class="mb2-bar"><span style="width:'+p+'%;background:'+c+'"></span></div>';
+    h+='</div>';});
+  h+='</div>';return h;}
+
+function heroHTML(){var eaten=Math.round(totalMacros(S.entries).calories);
+  var h='<div class="hero"><div class="hero-stat"><div class="hnum">'+eaten+'</div><div class="hlbl">Đã ăn</div></div><div class="hero-ring">'+heroRingSVG()+'</div></div>';
+  h+=macroBars2HTML();return h;}
+
 function overviewTab(){
-  var h='<section class="card"><h2 class="card-title">'+ic('overview',18)+' Tổng quan hôm nay</h2><div class="rings-wrap">'+ringsSVG()+'</div>'+ringsLegend()+'</section>';
-  h+='<section class="card"><div class="row-between" style="margin-bottom:14px"><h2 class="card-title" style="margin:0">'+ic('spark',18)+' Còn lại hôm nay</h2><button type="button" class="btn" id="new-day" style="min-height:44px;padding:8px 14px">'+ic('refresh',17)+' Ngày mới</button></div>'+remainingHTML()+'</section>';
-  h+='<section class="card"><div class="row-between" style="margin-bottom:14px"><h2 class="card-title" style="margin:0">'+ic('log',18)+' Nhật ký hôm nay</h2>'+(S.entries.length?'<span class="helper">'+S.entries.length+' món</span>':'')+'</div>';
-  if(S.entries.length===0)h+='<div class="empty">'+ic('bowl',40)+'<div class="t">Chưa có món nào hôm nay.<br>Chạm nút <b>+ Thêm món</b> để bắt đầu!</div></div>';
-  else{h+='<div class="food-list">';S.entries.forEach(function(e){h+=foodItemHTML(e);});h+='</div>';}
+  var h='<div class="hero-blue">'+heroBlueHTML()+'</div>';
+  if(S.heroTab==='foods'){ h+=foodsTab(); return h; }
+  h+='<section class="card"><div class="card-title" style="margin-bottom:12px">'+ic('overview',18)+' Chi tiết dinh dưỡng</div>'+macroBars2HTML()+'</section>';
+  var col=S.logCollapsed;
+  h+='<section class="card"><div class="row-between" style="margin-bottom:'+(col?'0':'14px')+'"><button type="button" id="log-toggle" class="log-head"><span class="chev-r'+(col?'':' open')+'">'+ic('chev',18)+'</span><h2 class="card-title" style="margin:0">'+ic('log',18)+' Nhật ký hôm nay</h2>'+(S.entries.length?'<span class="log-count">'+S.entries.length+'</span>':'')+'</button><button type="button" class="ficon" id="new-day" aria-label="Ngày mới">'+ic('refresh',17)+'</button></div>';
+  if(!col){
+    if(S.entries.length===0)h+='<div class="empty">'+ic('bowl',40)+'<div class="t">Chưa có món nào hôm nay.<br>Chạm nút <b>+ Thêm món</b> để bắt đầu!</div></div>';
+    else{h+='<div class="food-list">';S.entries.forEach(function(e){h+=foodItemHTML(e);});h+='</div>';}
+  }
   h+='</section>';return h;}
 
 function weekCardHTML(){
@@ -628,9 +741,9 @@ function weekCardHTML(){
 function dayTotals(key){
   if(key===todayKey())return totalMacros(S.entries);
   var d=null;historyLoad().forEach(function(x){if(x.date===key)d=x;});
-  if(!d)return {calories:0,protein:0,carb:0,fat:0,fiber:0};
+  if(!d){var z={};MACRO_KEYS.forEach(function(k){z[k]=0;});return z;}
   if(!d.manual&&d.entries&&d.entries.length)return totalMacros(d.entries);
-  return {calories:round1(d.calories||0),protein:round1(d.protein||0),carb:round1(d.carb||0),fat:round1(d.fat||0),fiber:round1(d.fiber||0)};
+  var o={};MACRO_KEYS.forEach(function(k){o[k]=round1(d[k]||0);});return o;
 }
 function saveManualDay(key,vals){
   var h=historyLoad();var found=null;h.forEach(function(x){if(x.date===key)found=x;});
@@ -701,6 +814,7 @@ function foodsTab(){
   h+=nf('cf-carb','Carb (g)','0');
   h+=nf('cf-fat','Chất béo (g)','0');
   h+=nf('cf-fiber','Chất xơ (g)','0');
+  h+=nf('cf-sugar','Đường (g)','0');
   h+='</div>';
   h+='<div class="helper" style="margin:2px 0 -4px">Đơn vị khác (tùy chọn) — sẽ hiện thành nút chọn nhanh khi thêm món. VD: cốc = 250g, phần = 150g.</div>';
   h+='<div class="cf-grid">';
@@ -728,7 +842,7 @@ function foodsTab(){
   h+='<p class="helper">Hỗ trợ link <b>gviz</b> của Sheet công khai, hoặc <b>Apps Script</b> trả JSONP. Cột: name, baseGrams, calories, protein, carb, fat, fiber (chấp nhận tên tiếng Việt).</p>';
   h+='</div></details></section>';return h;}
 
-var TABS=[{id:'overview',label:'Tổng quan',icon:'overview'},{id:'foods',label:'Món ăn',icon:'foods'},{id:'goals',label:'Mục tiêu',icon:'target'}];
+var TABS=[{id:'overview',label:'Tổng quan',icon:'overview'},{id:'goals',label:'Mục tiêu',icon:'target'}];
 function tabbarHTML(){var h='<nav class="tabbar" role="tablist"><div class="tabbar-inner">';
   TABS.forEach(function(t){var active=S.tab===t.id;var badge=(t.id==='overview'&&S.entries.length)?('<span class="badge">'+S.entries.length+'</span>'):'';
     h+='<button class="tab-btn'+(active?' active':'')+'" data-tab="'+t.id+'" role="tab" aria-selected="'+active+'">'+ic(t.icon,22)+'<span>'+t.label+'</span>'+badge+'</button>';});
@@ -784,7 +898,7 @@ function render(){
   h+='<button type="button" class="icon-btn" id="theme-toggle" aria-label="Đổi sáng/tối">'+ic(S.theme==='dark'?'moon':'sun',20)+'</button></div></header>';
   h+=tabbarHTML();
   h+='<main class="fade">'+content+'</main></div>';
-  if(S.tab==='overview')h+='<button type="button" class="fab" id="fab-add" aria-label="Thêm món">'+ic('plus',22)+' Thêm món</button>';
+  if(S.tab==='overview')h+='<button type="button" class="fab" id="fab-add" aria-label="Thêm món">'+ic('plus',26)+'</button>';
   if(S.quickAdd)h+=sheetHTML();
   if(S.dayView)h+=dayViewHTML();
   document.getElementById('app').innerHTML=h;
@@ -838,6 +952,8 @@ function bind(){
   app.querySelectorAll('[data-grams]').forEach(function(inp){inp.addEventListener('input',function(){var id=inp.getAttribute('data-grams');var g=round1(parseSumG(inp.value));for(var i=0;i<S.entries.length;i++)if(S.entries[i].id===id){S.entries[i].grams=g;S.entries[i].label=g+'g';S.entries[i].times=1;}persist();updateDynamic();});});
   app.querySelectorAll('[data-remove]').forEach(function(btn){btn.addEventListener('click',function(){var id=btn.getAttribute('data-remove');S.entries=S.entries.filter(function(e){return e.id!==id;});persist();render();});});
   var nd=document.getElementById('new-day');if(nd)nd.addEventListener('click',function(){if(confirm('Bắt đầu ngày mới? Nhật ký hôm nay sẽ được xoá.')){S.entries=[];S.selected='calories';persist();render();}});
+  var lt=document.getElementById('log-toggle');if(lt)lt.addEventListener('click',function(){S.logCollapsed=!S.logCollapsed;render();});
+  app.querySelectorAll('[data-herotab]').forEach(function(b){b.addEventListener('click',function(){S.heroTab=b.getAttribute('data-herotab');S.myFoodsStatus=null;S.sheetStatus=null;render();window.scrollTo({top:0,behavior:'smooth'});});});
   // google sheets
   var su=document.getElementById('sheet-url');if(su)su.addEventListener('input',function(){S.sheetUrl=su.value;persist();});
   var ls=document.getElementById('load-sheet');if(ls)ls.addEventListener('click',function(){if(!S.sheetUrl.trim()){S.sheetStatus={ok:false,msg:'Hãy nhập URL Google Sheets.'};render();return;}ls.disabled=true;ls.textContent='Đang nạp…';fetchFoodsFromSheet(S.sheetUrl).then(function(foods){S.sheetFoods=foods;S.sheetStatus={ok:true,msg:'Đã nạp '+foods.length+' thực phẩm.'};persist();render();}).catch(function(err){S.sheetStatus={ok:false,msg:err.message||'Lỗi.'};render();});});
@@ -848,7 +964,7 @@ function bind(){
     if(!name){S.myFoodsStatus={ok:false,msg:'Hãy nhập tên món.'};render();return;}
     function gv(id){var el=document.getElementById(id);return el?(parseFloat(String(el.value).replace(',','.'))||0):0;}
     function tv(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';}
-    var food={id:'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2,5),name:name,baseGrams:gv('cf-base')||100,calories:gv('cf-cal'),protein:gv('cf-pro'),carb:gv('cf-carb'),fat:gv('cf-fat'),fiber:gv('cf-fiber'),source:'custom'};
+    var food={id:'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2,5),name:name,baseGrams:gv('cf-base')||100,calories:gv('cf-cal'),protein:gv('cf-pro'),carb:gv('cf-carb'),fat:gv('cf-fat'),fiber:gv('cf-fiber'),sugar:gv('cf-sugar'),source:'custom'};
     var units={};var u1n=tv('cf-u1n'),u1g=gv('cf-u1g'),u2n=tv('cf-u2n'),u2g=gv('cf-u2g');
     if(u1n&&u1g>0)units[u1n]=u1g;if(u2n&&u2g>0)units[u2n]=u2g;
     if(Object.keys(units).length)food.units=units;
@@ -871,11 +987,11 @@ function bind(){
 }
 
 function updateDynamic(){
-  var rw=document.querySelector('.rings-wrap');if(rw)rw.innerHTML=ringsSVG();
-  var mb=document.querySelector('.rlegend');if(mb)mb.outerHTML=ringsLegend();
-  var grid=document.querySelector('.remaining-grid');if(grid)grid.outerHTML=remainingHTML();
-  document.querySelectorAll('.food-item').forEach(function(el,i){var e=S.entries[i];if(!e)return;var m=entryMacros(e);var chips=el.querySelector('.fmacros');if(chips)chips.innerHTML='<span class="chip" style="background:'+MACRO_COLORS.calories+'">'+round1(m.calories)+' kcal</span><span class="chip" style="background:'+MACRO_COLORS.protein+'">P '+round1(m.protein)+'g</span><span class="chip" style="background:'+MACRO_COLORS.carb+'">C '+round1(m.carb)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fat+'">F '+round1(m.fat)+'g</span><span class="chip" style="background:'+MACRO_COLORS.fiber+'">Xơ '+round1(m.fiber)+'g</span>';var meta=el.querySelector('.fmeta');if(meta)meta.textContent=round1(e.grams)+'g đã nấu chín · gốc '+round1(e.baseGrams)+'g';});
-  document.querySelectorAll('[data-macro]').forEach(function(el){el.onclick=function(){selectMacro(el.getAttribute('data-macro'));};});
+  var hb=document.querySelector('.hero-blue');if(hb)hb.innerHTML=heroBlueHTML();
+  var mb=document.querySelector('.mbars2');if(mb)mb.outerHTML=macroBars2HTML();
+  document.querySelectorAll('.food-item').forEach(function(el,i){var e=S.entries[i];if(!e)return;var m=entryMacros(e);var chips=el.querySelector('.fchips');if(chips)chips.innerHTML='<span class="fchip" style="color:'+MACRO_COLORS.carb+';background:'+MACRO_COLORS.carb+'1a">C '+round1(m.carb)+'g</span><span class="fchip" style="color:'+MACRO_COLORS.protein+';background:'+MACRO_COLORS.protein+'1a">P '+round1(m.protein)+'g</span><span class="fchip" style="color:'+MACRO_COLORS.fat+';background:'+MACRO_COLORS.fat+'1a">F '+round1(m.fat)+'g</span>';var meta=el.querySelector('.fmeta');if(meta)meta.innerHTML='<b>'+round1(m.calories)+' kcal</b> · '+(e.label?e.label:round1(e.grams)+'g');});
+  document.querySelectorAll('[data-day]').forEach(function(b){b.onclick=function(){S.dayView=b.getAttribute('data-day');render();};});
+  document.querySelectorAll('[data-herotab]').forEach(function(b){b.onclick=function(){S.heroTab=b.getAttribute('data-herotab');render();};});
 }
 
 render();
